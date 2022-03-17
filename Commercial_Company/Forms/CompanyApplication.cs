@@ -21,5 +21,38 @@ namespace Commercial_Company
         {
 
         }
+
+        private void WarehouseBtn_Click(object sender, EventArgs e)
+        {
+            Warehouse WarehouseForm = new Warehouse();
+            WarehouseForm.Dock = DockStyle.Fill;
+            WarehouseForm.TopLevel = false;
+            WarehouseForm.TopMost = true;
+            WarehouseForm.FormBorderStyle = FormBorderStyle.None;
+            this.panel2.Controls.Add(WarehouseForm);
+            WarehouseForm.Show();
+        }
+
+        private void ItemBtn_Click(object sender, EventArgs e)
+        {
+            Item ItemForm = new Item();
+            ItemForm.Dock = DockStyle.Fill;
+            ItemForm.TopLevel = false;
+            ItemForm.TopMost = true;
+            ItemForm.FormBorderStyle = FormBorderStyle.None;
+            this.panel2.Controls.Add(ItemForm);
+            ItemForm.Show();
+        }
+
+        private void SupplierBtn_Click(object sender, EventArgs e)
+        {
+            Supplier SupplierForm = new Supplier();
+            SupplierForm.Dock = DockStyle.Fill;
+            SupplierForm.TopLevel = false;
+            SupplierForm.TopMost = true;
+            SupplierForm.FormBorderStyle = FormBorderStyle.None;
+            this.panel2.Controls.Add(SupplierForm);
+            SupplierForm.Show();
+        }
     }
 }
