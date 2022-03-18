@@ -1,6 +1,6 @@
 ﻿namespace Commercial_Company
 {
-    partial class Supplier
+    partial class SupplierForm
     {
         /// <summary>
         /// Required designer variable.

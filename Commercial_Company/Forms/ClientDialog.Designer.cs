@@ -1,4 +1,4 @@
-﻿namespace Commercial_Company.Forms
+﻿namespace Commercial_Company
 {
     partial class ClientDialog
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.DialogTypeLabel = new System.Windows.Forms.Label();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.ClientNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,22 +38,22 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ClientTelTextBox = new System.Windows.Forms.TextBox();
-            this.ClientEmialTextBox = new System.Windows.Forms.TextBox();
+            this.ClientEmailTextBox = new System.Windows.Forms.TextBox();
             this.ClientFaxTextBox = new System.Windows.Forms.TextBox();
             this.ClientMobTextBox = new System.Windows.Forms.TextBox();
             this.ClientSiteTextBox = new System.Windows.Forms.TextBox();
             this.ApplyBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // DialogTypeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Client";
+            this.DialogTypeLabel.AutoSize = true;
+            this.DialogTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DialogTypeLabel.Location = new System.Drawing.Point(12, 9);
+            this.DialogTypeLabel.Name = "DialogTypeLabel";
+            this.DialogTypeLabel.Size = new System.Drawing.Size(115, 40);
+            this.DialogTypeLabel.TabIndex = 0;
+            this.DialogTypeLabel.Text = "Client";
             // 
             // CancelBtn
             // 
@@ -63,6 +63,7 @@
             this.CancelBtn.TabIndex = 1;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // ClientNameTextBox
             // 
@@ -132,12 +133,12 @@
             this.ClientTelTextBox.Size = new System.Drawing.Size(236, 26);
             this.ClientTelTextBox.TabIndex = 9;
             // 
-            // ClientEmialTextBox
+            // ClientEmailTextBox
             // 
-            this.ClientEmialTextBox.Location = new System.Drawing.Point(125, 246);
-            this.ClientEmialTextBox.Name = "ClientEmialTextBox";
-            this.ClientEmialTextBox.Size = new System.Drawing.Size(236, 26);
-            this.ClientEmialTextBox.TabIndex = 10;
+            this.ClientEmailTextBox.Location = new System.Drawing.Point(125, 246);
+            this.ClientEmailTextBox.Name = "ClientEmailTextBox";
+            this.ClientEmailTextBox.Size = new System.Drawing.Size(236, 26);
+            this.ClientEmailTextBox.TabIndex = 10;
             // 
             // ClientFaxTextBox
             // 
@@ -168,6 +169,7 @@
             this.ApplyBtn.TabIndex = 14;
             this.ApplyBtn.Text = "Apply";
             this.ApplyBtn.UseVisualStyleBackColor = true;
+            this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
             // 
             // ClientDialog
             // 
@@ -178,7 +180,7 @@
             this.Controls.Add(this.ClientSiteTextBox);
             this.Controls.Add(this.ClientMobTextBox);
             this.Controls.Add(this.ClientFaxTextBox);
-            this.Controls.Add(this.ClientEmialTextBox);
+            this.Controls.Add(this.ClientEmailTextBox);
             this.Controls.Add(this.ClientTelTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -188,9 +190,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ClientNameTextBox);
             this.Controls.Add(this.CancelBtn);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DialogTypeLabel);
             this.Name = "ClientDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientDialog";
+            this.Load += new System.EventHandler(this.ClientDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,7 +202,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label DialogTypeLabel;
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.TextBox ClientNameTextBox;
         private System.Windows.Forms.Label label2;
@@ -208,7 +212,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ClientTelTextBox;
-        private System.Windows.Forms.TextBox ClientEmialTextBox;
+        private System.Windows.Forms.TextBox ClientEmailTextBox;
         private System.Windows.Forms.TextBox ClientFaxTextBox;
         private System.Windows.Forms.TextBox ClientMobTextBox;
         private System.Windows.Forms.TextBox ClientSiteTextBox;

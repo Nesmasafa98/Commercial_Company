@@ -1,6 +1,6 @@
 ﻿namespace Commercial_Company
 {
-    partial class Client
+    partial class ClientForm
     {
         /// <summary>
         /// Required designer variable.
@@ -65,6 +65,7 @@
             this.ClientGridView.RowTemplate.Height = 28;
             this.ClientGridView.Size = new System.Drawing.Size(776, 349);
             this.ClientGridView.TabIndex = 3;
+            this.ClientGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClientGridView_CellDoubleClick);
             // 
             // AddClientBtn
             // 
@@ -75,14 +76,16 @@
             this.AddClientBtn.TabIndex = 2;
             this.AddClientBtn.Text = "Add";
             this.AddClientBtn.UseVisualStyleBackColor = true;
+            this.AddClientBtn.Click += new System.EventHandler(this.AddClientBtn_Click);
             // 
             // ClientIDCol
             // 
-            this.ClientIDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ClientIDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.ClientIDCol.HeaderText = "ID";
             this.ClientIDCol.MinimumWidth = 8;
             this.ClientIDCol.Name = "ClientIDCol";
             this.ClientIDCol.ReadOnly = true;
+            this.ClientIDCol.Width = 62;
             // 
             // ClientNameCol
             // 
@@ -134,22 +137,26 @@
             // 
             // ClientEditCol
             // 
-            this.ClientEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ClientEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ClientEditCol.FillWeight = 75F;
             this.ClientEditCol.HeaderText = "";
+            this.ClientEditCol.Image = global::Commercial_Company.Properties.Resources.editIcon;
+            this.ClientEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.ClientEditCol.MinimumWidth = 8;
             this.ClientEditCol.Name = "ClientEditCol";
             this.ClientEditCol.ReadOnly = true;
-            this.ClientEditCol.Width = 8;
+            this.ClientEditCol.Width = 30;
             // 
-            // Client
+            // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ClientGridView);
             this.Controls.Add(this.AddClientBtn);
-            this.Name = "Client";
+            this.Name = "ClientForm";
             this.Text = "Client";
+            this.Load += new System.EventHandler(this.ClientForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ClientGridView)).EndInit();
             this.ResumeLayout(false);
 

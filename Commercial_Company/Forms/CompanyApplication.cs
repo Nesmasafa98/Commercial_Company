@@ -12,10 +12,11 @@ namespace Commercial_Company
 {
     public partial class CompanyApplication : Form
     {
-        Warehouse WarehouseForm;
-        Item ItemForm;
-        Supplier SupplierForm;
-        Client ClientForm;
+        static public Commercial_CompanyEntities Ent = new Commercial_CompanyEntities();
+        WarehouseForm WarehouseForm;
+        ItemForm ItemForm;
+        SupplierForm SupplierForm;
+        ClientForm ClientForm;
         public CompanyApplication()
         {
             InitializeComponent();
@@ -23,10 +24,10 @@ namespace Commercial_Company
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            WarehouseForm = new Warehouse();
-            ItemForm = new Item();
-            SupplierForm = new Supplier();
-            ClientForm = new Client();
+            WarehouseForm = new WarehouseForm();
+            ItemForm = new ItemForm();
+            SupplierForm = new SupplierForm();
+            ClientForm = new ClientForm();
 
         }
 

@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Commercial_Company
 {
-    public partial class Warehouse : Form
+    public partial class SupplierForm : Form
     {
-        public Warehouse()
+        public SupplierForm()
         {
             InitializeComponent();
         }
+
     }
 }

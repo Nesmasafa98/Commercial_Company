@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Commercial_Company
 {
-    public partial class Item : Form
+    public partial class WarehouseForm : Form
     {
-        public Item()
+        public WarehouseForm()
         {
             InitializeComponent();
         }
