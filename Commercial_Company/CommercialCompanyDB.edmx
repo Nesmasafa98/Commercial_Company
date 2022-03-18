@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Commercial_CompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Commercial_CompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Client_ID" />
@@ -76,6 +76,14 @@
           </Key>
           <Property Name="Item_ID" Type="int" Nullable="false" />
           <Property Name="Unit" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item_Warehouse">
+          <Key>
+            <PropertyRef Name="Item_ID" />
+            <PropertyRef Name="Ware_Name" />
+          </Key>
+          <Property Name="Item_ID" Type="int" Nullable="false" />
+          <Property Name="Ware_Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -251,7 +259,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Item_Warehouse_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Item_Warehouse" Type="Self.Item_Warehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Item_ID" />
+            </Principal>
+            <Dependent Role="Item_Warehouse">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_Warehouse_Warehouse">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+          <End Role="Item_Warehouse" Type="Self.Item_Warehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Ware_Name" />
+            </Principal>
+            <Dependent Role="Item_Warehouse">
+              <PropertyRef Name="Ware_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="SelectItems_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -291,6 +324,7 @@
           <EntitySet Name="Import_Qty" EntityType="Self.Import_Qty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item_Unit" EntityType="Self.Item_Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item_Warehouse" EntityType="Self.Item_Warehouse" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
@@ -342,9 +376,16 @@
             <End Role="Item" EntitySet="Item" />
             <End Role="Item_Unit" EntitySet="Item_Unit" />
           </AssociationSet>
+          <AssociationSet Name="FK_Item_Warehouse_Item" Association="Self.FK_Item_Warehouse_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Item_Warehouse" EntitySet="Item_Warehouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_Warehouse_Warehouse" Association="Self.FK_Item_Warehouse_Warehouse">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Item_Warehouse" EntitySet="Item_Warehouse" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Commercial_CompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -431,6 +472,7 @@
           <NavigationProperty Name="Import_Order" Relationship="Self.FK_Import_Order_Item" FromRole="Item" ToRole="Import_Order" />
           <NavigationProperty Name="Import_Qty" Relationship="Self.FK_Import_Qty_Item" FromRole="Item" ToRole="Import_Qty" />
           <NavigationProperty Name="Item_Unit" Relationship="Self.FK_Item_Unit_Item" FromRole="Item" ToRole="Item_Unit" />
+          <NavigationProperty Name="Warehouses" Relationship="Commercial_CompanyModel.Item_Warehouse" FromRole="Item" ToRole="Warehouse" />
         </EntityType>
         <EntityType Name="Item_Unit">
           <Key>
@@ -473,6 +515,7 @@
           <Property Name="Ware_Mgr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Export_Order" Relationship="Self.FK_Export_Order_Warehouse" FromRole="Warehouse" ToRole="Export_Order" />
           <NavigationProperty Name="Import_Order" Relationship="Self.FK_Import_Order_Warehouse" FromRole="Warehouse" ToRole="Import_Order" />
+          <NavigationProperty Name="Items" Relationship="Commercial_CompanyModel.Item_Warehouse" FromRole="Warehouse" ToRole="Item" />
         </EntityType>
         <Association Name="FK_Export_Order_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
@@ -708,6 +751,11 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <AssociationSet Name="Item_Warehouse" Association="Commercial_CompanyModel.Item_Warehouse">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Warehouse" EntitySet="Warehouses" />
+          </AssociationSet>
+          <FunctionImport Name="SelectItems_SP" ReturnType="Collection(Commercial_CompanyModel.SelectItems_SP_Result)" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -719,6 +767,16 @@
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <Association Name="Item_Warehouse">
+          <End Type="Commercial_CompanyModel.Item" Role="Item" Multiplicity="*" />
+          <End Type="Commercial_CompanyModel.Warehouse" Role="Warehouse" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="SelectItems_SP_Result">
+          <Property Type="Int32" Name="Item_ID" Nullable="false" />
+          <Property Type="String" Name="Item_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Ware_Name" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -861,6 +919,24 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Commercial_CompanyModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Commercial_CompanyModel.Store.sp_upgraddiagrams" />
+          <AssociationSetMapping Name="Item_Warehouse" TypeName="Commercial_CompanyModel.Item_Warehouse" StoreEntitySet="Item_Warehouse">
+            <EndProperty Name="Warehouse">
+              <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
+            </EndProperty>
+            <EndProperty Name="Item">
+              <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="SelectItems_SP" FunctionName="Commercial_CompanyModel.Store.SelectItems_SP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Commercial_CompanyModel.SelectItems_SP_Result">
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

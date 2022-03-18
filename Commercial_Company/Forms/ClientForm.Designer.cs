@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.ClientGridView = new System.Windows.Forms.DataGridView();
-            this.AddClientBtn = new System.Windows.Forms.Button();
             this.ClientIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientTelCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,6 +37,7 @@
             this.ClientEmailCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientSiteCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientEditCol = new System.Windows.Forms.DataGridViewImageColumn();
+            this.AddClientBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ClientGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,18 +65,7 @@
             this.ClientGridView.RowTemplate.Height = 28;
             this.ClientGridView.Size = new System.Drawing.Size(776, 349);
             this.ClientGridView.TabIndex = 3;
-            this.ClientGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClientGridView_CellDoubleClick);
-            // 
-            // AddClientBtn
-            // 
-            this.AddClientBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddClientBtn.Location = new System.Drawing.Point(642, 12);
-            this.AddClientBtn.Name = "AddClientBtn";
-            this.AddClientBtn.Size = new System.Drawing.Size(146, 42);
-            this.AddClientBtn.TabIndex = 2;
-            this.AddClientBtn.Text = "Add";
-            this.AddClientBtn.UseVisualStyleBackColor = true;
-            this.AddClientBtn.Click += new System.EventHandler(this.AddClientBtn_Click);
+            this.ClientGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClientGridView_CellClick);
             // 
             // ClientIDCol
             // 
@@ -146,6 +135,17 @@
             this.ClientEditCol.Name = "ClientEditCol";
             this.ClientEditCol.ReadOnly = true;
             this.ClientEditCol.Width = 30;
+            // 
+            // AddClientBtn
+            // 
+            this.AddClientBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddClientBtn.Location = new System.Drawing.Point(642, 12);
+            this.AddClientBtn.Name = "AddClientBtn";
+            this.AddClientBtn.Size = new System.Drawing.Size(146, 42);
+            this.AddClientBtn.TabIndex = 2;
+            this.AddClientBtn.Text = "Add";
+            this.AddClientBtn.UseVisualStyleBackColor = true;
+            this.AddClientBtn.Click += new System.EventHandler(this.AddClientBtn_Click);
             // 
             // ClientForm
             // 

@@ -180,6 +180,9 @@
     <Compile Include="Forms\WarehouseForm.Designer.cs">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectItems_SP_Result.cs">
+      <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
     </Compile>

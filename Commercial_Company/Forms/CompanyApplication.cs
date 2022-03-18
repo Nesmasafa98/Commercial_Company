@@ -17,6 +17,7 @@ namespace Commercial_Company
         ItemForm ItemForm;
         SupplierForm SupplierForm;
         ClientForm ClientForm;
+        Permissions PermissionsForm;
         public CompanyApplication()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace Commercial_Company
             ItemForm = new ItemForm();
             SupplierForm = new SupplierForm();
             ClientForm = new ClientForm();
+            PermissionsForm = new Permissions();
 
         }
 
@@ -42,6 +44,7 @@ namespace Commercial_Company
             ItemForm.Hide();
             SupplierForm.Hide();
             ClientForm.Hide();
+            PermissionsForm.Hide();
         }
 
         private void ItemBtn_Click(object sender, EventArgs e)
@@ -55,6 +58,7 @@ namespace Commercial_Company
             WarehouseForm.Hide();
             SupplierForm.Hide();
             ClientForm.Hide();
+            PermissionsForm.Hide();
         }
 
         private void SupplierBtn_Click(object sender, EventArgs e)
@@ -68,6 +72,7 @@ namespace Commercial_Company
             ItemForm.Hide();
             WarehouseForm.Hide();
             ClientForm.Hide();
+            PermissionsForm.Hide();
         }
 
         private void ClientBtn_Click(object sender, EventArgs e)
@@ -78,6 +83,21 @@ namespace Commercial_Company
             ClientForm.FormBorderStyle = FormBorderStyle.None;
             this.MainPanel.Controls.Add(ClientForm);
             ClientForm.Show();
+            ItemForm.Hide();
+            WarehouseForm.Hide();
+            SupplierForm.Hide();
+            PermissionsForm.Hide();
+        }
+
+        private void PermissionsBtn_Click(object sender, EventArgs e)
+        {
+            PermissionsForm.Dock = DockStyle.Fill;
+            PermissionsForm.TopLevel = false;
+            PermissionsForm.TopMost = true;
+            PermissionsForm.FormBorderStyle = FormBorderStyle.None;
+            this.MainPanel.Controls.Add(PermissionsForm);
+            PermissionsForm.Show();
+            ClientForm.Hide();
             ItemForm.Hide();
             WarehouseForm.Hide();
             SupplierForm.Hide();

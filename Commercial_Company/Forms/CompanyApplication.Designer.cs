@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.NavPanel = new System.Windows.Forms.Panel();
+            this.PermissionsBtn = new System.Windows.Forms.Button();
             this.ClientBtn = new System.Windows.Forms.Button();
             this.SupplierBtn = new System.Windows.Forms.Button();
             this.ItemBtn = new System.Windows.Forms.Button();
             this.WarehouseBtn = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.PermissionsBtn = new System.Windows.Forms.Button();
             this.NavPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,16 @@
             this.NavPanel.Name = "NavPanel";
             this.NavPanel.Size = new System.Drawing.Size(200, 448);
             this.NavPanel.TabIndex = 0;
+            // 
+            // PermissionsBtn
+            // 
+            this.PermissionsBtn.Location = new System.Drawing.Point(0, 308);
+            this.PermissionsBtn.Name = "PermissionsBtn";
+            this.PermissionsBtn.Size = new System.Drawing.Size(200, 40);
+            this.PermissionsBtn.TabIndex = 4;
+            this.PermissionsBtn.Text = "Permissions";
+            this.PermissionsBtn.UseVisualStyleBackColor = true;
+            this.PermissionsBtn.Click += new System.EventHandler(this.PermissionsBtn_Click);
             // 
             // ClientBtn
             // 
@@ -105,15 +115,6 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(602, 448);
             this.MainPanel.TabIndex = 1;
-            // 
-            // PermissionsBtn
-            // 
-            this.PermissionsBtn.Location = new System.Drawing.Point(0, 308);
-            this.PermissionsBtn.Name = "PermissionsBtn";
-            this.PermissionsBtn.Size = new System.Drawing.Size(200, 40);
-            this.PermissionsBtn.TabIndex = 4;
-            this.PermissionsBtn.Text = "Permissions";
-            this.PermissionsBtn.UseVisualStyleBackColor = true;
             // 
             // CompanyApplication
             // 

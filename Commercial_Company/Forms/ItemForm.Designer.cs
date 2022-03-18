@@ -32,6 +32,8 @@
             this.AddItemBtn = new System.Windows.Forms.Button();
             this.ItemIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemUnitCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemWareCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemEditCol = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ItemGridView)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +49,8 @@
             this.ItemGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemIDCol,
             this.ItemNameCol,
+            this.ItemUnitCol,
+            this.ItemWareCol,
             this.ItemEditCol});
             this.ItemGridView.Location = new System.Drawing.Point(12, 89);
             this.ItemGridView.Name = "ItemGridView";
@@ -55,6 +59,7 @@
             this.ItemGridView.RowTemplate.Height = 28;
             this.ItemGridView.Size = new System.Drawing.Size(776, 349);
             this.ItemGridView.TabIndex = 3;
+            this.ItemGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemGridView_CellClick);
             // 
             // AddItemBtn
             // 
@@ -65,6 +70,7 @@
             this.AddItemBtn.TabIndex = 2;
             this.AddItemBtn.Text = "Add";
             this.AddItemBtn.UseVisualStyleBackColor = true;
+            this.AddItemBtn.Click += new System.EventHandler(this.AddItemBtn_Click);
             // 
             // ItemIDCol
             // 
@@ -82,24 +88,44 @@
             this.ItemNameCol.Name = "ItemNameCol";
             this.ItemNameCol.ReadOnly = true;
             // 
+            // ItemUnitCol
+            // 
+            this.ItemUnitCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemUnitCol.HeaderText = "Unit/s";
+            this.ItemUnitCol.MinimumWidth = 8;
+            this.ItemUnitCol.Name = "ItemUnitCol";
+            this.ItemUnitCol.ReadOnly = true;
+            // 
+            // ItemWareCol
+            // 
+            this.ItemWareCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemWareCol.HeaderText = "Warehouse";
+            this.ItemWareCol.MinimumWidth = 8;
+            this.ItemWareCol.Name = "ItemWareCol";
+            this.ItemWareCol.ReadOnly = true;
+            // 
             // ItemEditCol
             // 
-            this.ItemEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ItemEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemEditCol.FillWeight = 75F;
             this.ItemEditCol.HeaderText = "";
+            this.ItemEditCol.Image = global::Commercial_Company.Properties.Resources.editIcon;
+            this.ItemEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.ItemEditCol.MinimumWidth = 8;
             this.ItemEditCol.Name = "ItemEditCol";
             this.ItemEditCol.ReadOnly = true;
-            this.ItemEditCol.Width = 8;
+            this.ItemEditCol.Width = 25;
             // 
-            // Item
+            // ItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ItemGridView);
             this.Controls.Add(this.AddItemBtn);
-            this.Name = "Item";
+            this.Name = "ItemForm";
             this.Text = "Item";
+            this.Load += new System.EventHandler(this.ItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ItemGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -111,6 +137,8 @@
         private System.Windows.Forms.Button AddItemBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemIDCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemWareCol;
         private System.Windows.Forms.DataGridViewImageColumn ItemEditCol;
     }
 }

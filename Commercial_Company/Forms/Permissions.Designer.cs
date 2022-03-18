@@ -1,4 +1,4 @@
-﻿namespace Commercial_Company.Forms
+﻿namespace Commercial_Company
 {
     partial class Permissions
     {
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.HeaderPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.DismissBtn = new System.Windows.Forms.Button();
+            this.SupplyBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.PermissionNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PermissionTypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,30 +43,32 @@
             // HeaderPanel
             // 
             this.HeaderPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.HeaderPanel.Controls.Add(this.button2);
-            this.HeaderPanel.Controls.Add(this.button1);
+            this.HeaderPanel.Controls.Add(this.DismissBtn);
+            this.HeaderPanel.Controls.Add(this.SupplyBtn);
             this.HeaderPanel.Location = new System.Drawing.Point(12, 1);
             this.HeaderPanel.Name = "HeaderPanel";
             this.HeaderPanel.Size = new System.Drawing.Size(776, 56);
             this.HeaderPanel.TabIndex = 2;
             // 
-            // button1
+            // DismissBtn
             // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 53);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Supply";
-            this.button1.UseVisualStyleBackColor = true;
+            this.DismissBtn.Location = new System.Drawing.Point(126, 0);
+            this.DismissBtn.Name = "DismissBtn";
+            this.DismissBtn.Size = new System.Drawing.Size(95, 53);
+            this.DismissBtn.TabIndex = 1;
+            this.DismissBtn.Text = "Dismiss";
+            this.DismissBtn.UseVisualStyleBackColor = true;
+            this.DismissBtn.Click += new System.EventHandler(this.DismissBtn_Click);
             // 
-            // button2
+            // SupplyBtn
             // 
-            this.button2.Location = new System.Drawing.Point(126, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 53);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Export";
-            this.button2.UseVisualStyleBackColor = true;
+            this.SupplyBtn.Location = new System.Drawing.Point(0, 0);
+            this.SupplyBtn.Name = "SupplyBtn";
+            this.SupplyBtn.Size = new System.Drawing.Size(95, 53);
+            this.SupplyBtn.TabIndex = 0;
+            this.SupplyBtn.Text = "Supply";
+            this.SupplyBtn.UseVisualStyleBackColor = true;
+            this.SupplyBtn.Click += new System.EventHandler(this.SupplyBtn_Click);
             // 
             // dataGridView1
             // 
@@ -138,8 +140,8 @@
 
         #endregion
         private System.Windows.Forms.Panel HeaderPanel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DismissBtn;
+        private System.Windows.Forms.Button SupplyBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn PermissionNoCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn PermissionTypeCol;

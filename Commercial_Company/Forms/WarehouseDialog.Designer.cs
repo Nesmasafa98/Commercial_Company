@@ -1,4 +1,4 @@
-﻿namespace Commercial_Company.Forms
+﻿namespace Commercial_Company
 {
     partial class WarehouseDialog
     {
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.ApplyBtn = new System.Windows.Forms.Button();
-            this.ManagerTextBox = new System.Windows.Forms.TextBox();
+            this.WarehouseManagerTextBox = new System.Windows.Forms.TextBox();
             this.WarehouseLocTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.WarehouseNameTextBox = new System.Windows.Forms.TextBox();
             this.CancelBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.DialogTypeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ApplyBtn
@@ -47,13 +47,14 @@
             this.ApplyBtn.TabIndex = 29;
             this.ApplyBtn.Text = "Apply";
             this.ApplyBtn.UseVisualStyleBackColor = true;
+            this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
             // 
-            // ManagerTextBox
+            // WarehouseManagerTextBox
             // 
-            this.ManagerTextBox.Location = new System.Drawing.Point(339, 196);
-            this.ManagerTextBox.Name = "ManagerTextBox";
-            this.ManagerTextBox.Size = new System.Drawing.Size(236, 26);
-            this.ManagerTextBox.TabIndex = 27;
+            this.WarehouseManagerTextBox.Location = new System.Drawing.Point(339, 196);
+            this.WarehouseManagerTextBox.Name = "WarehouseManagerTextBox";
+            this.WarehouseManagerTextBox.Size = new System.Drawing.Size(236, 26);
+            this.WarehouseManagerTextBox.TabIndex = 27;
             // 
             // WarehouseLocTextBox
             // 
@@ -104,16 +105,17 @@
             this.CancelBtn.TabIndex = 16;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // label1
+            // DialogTypeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(226, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 40);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Warehouse";
+            this.DialogTypeLabel.AutoSize = true;
+            this.DialogTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DialogTypeLabel.Location = new System.Drawing.Point(226, 32);
+            this.DialogTypeLabel.Name = "DialogTypeLabel";
+            this.DialogTypeLabel.Size = new System.Drawing.Size(210, 40);
+            this.DialogTypeLabel.TabIndex = 15;
+            this.DialogTypeLabel.Text = "Warehouse";
             // 
             // WarehouseDialog
             // 
@@ -121,16 +123,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ApplyBtn);
-            this.Controls.Add(this.ManagerTextBox);
+            this.Controls.Add(this.WarehouseManagerTextBox);
             this.Controls.Add(this.WarehouseLocTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.WarehouseNameTextBox);
             this.Controls.Add(this.CancelBtn);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DialogTypeLabel);
             this.Name = "WarehouseDialog";
             this.Text = "WarehouseDialog";
+            this.Load += new System.EventHandler(this.WarehouseDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,13 +142,13 @@
         #endregion
 
         private System.Windows.Forms.Button ApplyBtn;
-        private System.Windows.Forms.TextBox ManagerTextBox;
+        private System.Windows.Forms.TextBox WarehouseManagerTextBox;
         private System.Windows.Forms.TextBox WarehouseLocTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox WarehouseNameTextBox;
         private System.Windows.Forms.Button CancelBtn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label DialogTypeLabel;
     }
 }

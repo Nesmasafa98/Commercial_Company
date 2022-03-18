@@ -141,5 +141,10 @@ namespace Commercial_Company
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<SelectItems_SP_Result> SelectItems_SP()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItems_SP_Result>("SelectItems_SP");
+        }
     }
 }

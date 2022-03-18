@@ -46,7 +46,7 @@ namespace Commercial_Company
 
             foreach (var Clt in Clients)
             {
-                ClientGridView.Rows.Add(Clt.Client_ID, Clt.Client_Name, Clt.Client_Tel, Clt.Client_Mob, Clt.Client_Fax, Clt.Client_Email, Clt.Client_Site, null);
+                ClientGridView.Rows.Add(Clt.Client_ID, Clt.Client_Name, Clt.Client_Tel, Clt.Client_Mob, Clt.Client_Fax, Clt.Client_Email, Clt.Client_Site);
             }
 
             if (ClientGridView.CurrentCell != null)
@@ -55,9 +55,9 @@ namespace Commercial_Company
             }
         }
 
-        private void ClientGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void ClientGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(ClientGridView.CurrentCell.ColumnIndex == 7)
+            if(e.ColumnIndex == 7)
             {
                 ClientDialog clientDlg = new ClientDialog();
                 DialogResult dResult;

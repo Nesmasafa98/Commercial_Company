@@ -22,6 +22,7 @@ namespace Commercial_Company
             this.Import_Order = new HashSet<Import_Order>();
             this.Import_Qty = new HashSet<Import_Qty>();
             this.Item_Unit = new HashSet<Item_Unit>();
+            this.Warehouses = new HashSet<Warehouse>();
         }
     
         public int Item_ID { get; set; }
@@ -37,5 +38,7 @@ namespace Commercial_Company
         public virtual ICollection<Import_Qty> Import_Qty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Item_Unit> Item_Unit { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Warehouse> Warehouses { get; set; }
     }
 }

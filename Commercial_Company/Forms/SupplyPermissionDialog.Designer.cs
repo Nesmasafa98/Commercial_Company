@@ -1,4 +1,4 @@
-﻿namespace Commercial_Company.Forms
+﻿namespace Commercial_Company
 {
     partial class SupplyPermissionDialog
     {

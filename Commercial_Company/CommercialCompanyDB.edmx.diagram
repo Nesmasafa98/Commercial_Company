@@ -28,6 +28,7 @@
         <AssociationConnector Association="Commercial_CompanyModel.FK_Import_Qty_Import_Order" ManuallyRouted="false" />
         <AssociationConnector Association="Commercial_CompanyModel.FK_Import_Qty_Item" ManuallyRouted="false" />
         <AssociationConnector Association="Commercial_CompanyModel.FK_Item_Unit_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="Commercial_CompanyModel.Item_Warehouse" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

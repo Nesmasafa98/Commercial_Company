@@ -23,7 +23,7 @@ namespace Commercial_Company
         {
             if(isEmpty())
             {
-                MessageBox.Show("Invalid Data");
+                return;
             }
             else
             {
@@ -58,6 +58,7 @@ namespace Commercial_Company
                 string.IsNullOrWhiteSpace(ClientSiteTextBox.Text)
               )
             {
+                MessageBox.Show("Please Enter The Required Data");
                 return true;
             }
 
@@ -76,7 +77,6 @@ namespace Commercial_Company
                 ClientFaxTextBox.Text = Client.Client_Fax.ToString();
                 ClientEmailTextBox.Text = Client.Client_Email;
                 ClientSiteTextBox.Text = Client.Client_Site;
-
             }
         }
 

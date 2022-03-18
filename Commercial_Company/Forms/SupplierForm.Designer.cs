@@ -65,7 +65,7 @@
             this.SupplierGridView.RowTemplate.Height = 28;
             this.SupplierGridView.Size = new System.Drawing.Size(776, 349);
             this.SupplierGridView.TabIndex = 3;
-            
+            this.SupplierGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SupplierGridView_CellClick);
             // 
             // AddSupplierBtn
             // 
@@ -76,6 +76,7 @@
             this.AddSupplierBtn.TabIndex = 2;
             this.AddSupplierBtn.Text = "Add";
             this.AddSupplierBtn.UseVisualStyleBackColor = true;
+            this.AddSupplierBtn.Click += new System.EventHandler(this.AddSupplierBtn_Click);
             // 
             // SupplierIDCol
             // 
@@ -135,22 +136,25 @@
             // 
             // SupplierEditCol
             // 
-            this.SupplierEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SupplierEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.SupplierEditCol.HeaderText = "";
+            this.SupplierEditCol.Image = global::Commercial_Company.Properties.Resources.editIcon;
+            this.SupplierEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.SupplierEditCol.MinimumWidth = 8;
             this.SupplierEditCol.Name = "SupplierEditCol";
             this.SupplierEditCol.ReadOnly = true;
-            this.SupplierEditCol.Width = 8;
+            this.SupplierEditCol.Width = 20;
             // 
-            // Supplier
+            // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SupplierGridView);
             this.Controls.Add(this.AddSupplierBtn);
-            this.Name = "Supplier";
+            this.Name = "SupplierForm";
             this.Text = "Supplier";
+            this.Load += new System.EventHandler(this.SupplierForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SupplierGridView)).EndInit();
             this.ResumeLayout(false);
 

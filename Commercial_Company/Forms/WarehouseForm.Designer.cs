@@ -46,6 +46,7 @@
             this.AddWarehouseBtn.TabIndex = 0;
             this.AddWarehouseBtn.Text = "Add";
             this.AddWarehouseBtn.UseVisualStyleBackColor = true;
+            this.AddWarehouseBtn.Click += new System.EventHandler(this.AddWarehouseBtn_Click);
             // 
             // WarehouseGridView
             // 
@@ -67,6 +68,7 @@
             this.WarehouseGridView.RowTemplate.Height = 28;
             this.WarehouseGridView.Size = new System.Drawing.Size(776, 349);
             this.WarehouseGridView.TabIndex = 1;
+            this.WarehouseGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.WarehouseGridView_CellClick);
             // 
             // WarehouseNameCol
             // 
@@ -94,22 +96,25 @@
             // 
             // WarehouseEditCol
             // 
-            this.WarehouseEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.WarehouseEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.WarehouseEditCol.HeaderText = "";
+            this.WarehouseEditCol.Image = global::Commercial_Company.Properties.Resources.editIcon;
+            this.WarehouseEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.WarehouseEditCol.MinimumWidth = 8;
             this.WarehouseEditCol.Name = "WarehouseEditCol";
             this.WarehouseEditCol.ReadOnly = true;
-            this.WarehouseEditCol.Width = 8;
+            this.WarehouseEditCol.Width = 30;
             // 
-            // Warehouse
+            // WarehouseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.WarehouseGridView);
             this.Controls.Add(this.AddWarehouseBtn);
-            this.Name = "Warehouse";
+            this.Name = "WarehouseForm";
             this.Text = "Warehouse";
+            this.Load += new System.EventHandler(this.WarehouseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.WarehouseGridView)).EndInit();
             this.ResumeLayout(false);
 

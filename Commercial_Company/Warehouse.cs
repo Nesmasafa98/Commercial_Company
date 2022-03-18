@@ -19,6 +19,7 @@ namespace Commercial_Company
         {
             this.Export_Order = new HashSet<Export_Order>();
             this.Import_Order = new HashSet<Import_Order>();
+            this.Items = new HashSet<Item>();
         }
     
         public string Ware_Name { get; set; }
@@ -29,5 +30,7 @@ namespace Commercial_Company
         public virtual ICollection<Export_Order> Export_Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Import_Order> Import_Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Item> Items { get; set; }
     }
 }
