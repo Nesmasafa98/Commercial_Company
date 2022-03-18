@@ -28,26 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.NavPanel = new System.Windows.Forms.Panel();
             this.ClientBtn = new System.Windows.Forms.Button();
             this.SupplierBtn = new System.Windows.Forms.Button();
             this.ItemBtn = new System.Windows.Forms.Button();
             this.WarehouseBtn = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.PermissionsBtn = new System.Windows.Forms.Button();
+            this.NavPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // NavPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.ClientBtn);
-            this.panel1.Controls.Add(this.SupplierBtn);
-            this.panel1.Controls.Add(this.ItemBtn);
-            this.panel1.Controls.Add(this.WarehouseBtn);
-            this.panel1.Location = new System.Drawing.Point(2, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 448);
-            this.panel1.TabIndex = 0;
+            this.NavPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NavPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.NavPanel.Controls.Add(this.PermissionsBtn);
+            this.NavPanel.Controls.Add(this.ClientBtn);
+            this.NavPanel.Controls.Add(this.SupplierBtn);
+            this.NavPanel.Controls.Add(this.ItemBtn);
+            this.NavPanel.Controls.Add(this.WarehouseBtn);
+            this.NavPanel.Location = new System.Drawing.Point(2, 0);
+            this.NavPanel.Name = "NavPanel";
+            this.NavPanel.Size = new System.Drawing.Size(200, 448);
+            this.NavPanel.TabIndex = 0;
             // 
             // ClientBtn
             // 
@@ -57,6 +62,7 @@
             this.ClientBtn.TabIndex = 3;
             this.ClientBtn.Text = "Client";
             this.ClientBtn.UseVisualStyleBackColor = true;
+            this.ClientBtn.Click += new System.EventHandler(this.ClientBtn_Click);
             // 
             // SupplierBtn
             // 
@@ -88,27 +94,40 @@
             this.WarehouseBtn.UseVisualStyleBackColor = true;
             this.WarehouseBtn.Click += new System.EventHandler(this.WarehouseBtn_Click);
             // 
-            // panel2
+            // MainPanel
             // 
-            this.panel2.AutoSize = true;
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Location = new System.Drawing.Point(208, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(587, 448);
-            this.panel2.TabIndex = 1;
+            this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainPanel.AutoSize = true;
+            this.MainPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.MainPanel.Location = new System.Drawing.Point(208, 0);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(602, 448);
+            this.MainPanel.TabIndex = 1;
+            // 
+            // PermissionsBtn
+            // 
+            this.PermissionsBtn.Location = new System.Drawing.Point(0, 308);
+            this.PermissionsBtn.Name = "PermissionsBtn";
+            this.PermissionsBtn.Size = new System.Drawing.Size(200, 40);
+            this.PermissionsBtn.TabIndex = 4;
+            this.PermissionsBtn.Text = "Permissions";
+            this.PermissionsBtn.UseVisualStyleBackColor = true;
             // 
             // CompanyApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.MainPanel);
+            this.Controls.Add(this.NavPanel);
             this.Name = "CompanyApplication";
             this.Text = "Company Application";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
+            this.NavPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,12 +135,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel NavPanel;
+        private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Button WarehouseBtn;
         private System.Windows.Forms.Button ClientBtn;
         private System.Windows.Forms.Button SupplierBtn;
         private System.Windows.Forms.Button ItemBtn;
+        private System.Windows.Forms.Button PermissionsBtn;
     }
 }
 

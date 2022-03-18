@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Commercial_Company
+namespace Commercial_Company.Forms
 {
-    public partial class Supplier : Form
+    public partial class Permissions : Form
     {
-        public Supplier()
+        public Permissions()
         {
             InitializeComponent();
         }
-
     }
 }
