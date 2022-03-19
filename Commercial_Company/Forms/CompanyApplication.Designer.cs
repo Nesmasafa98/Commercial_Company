@@ -35,6 +35,7 @@
             this.ItemBtn = new System.Windows.Forms.Button();
             this.WarehouseBtn = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.NavPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NavPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.NavPanel.Controls.Add(this.button1);
             this.NavPanel.Controls.Add(this.PermissionsBtn);
             this.NavPanel.Controls.Add(this.ClientBtn);
             this.NavPanel.Controls.Add(this.SupplierBtn);
@@ -116,6 +118,15 @@
             this.MainPanel.Size = new System.Drawing.Size(602, 448);
             this.MainPanel.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 367);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 40);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Transactions";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // CompanyApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -143,6 +154,7 @@
         private System.Windows.Forms.Button SupplierBtn;
         private System.Windows.Forms.Button ItemBtn;
         private System.Windows.Forms.Button PermissionsBtn;
+        private System.Windows.Forms.Button button1;
     }
 }
 

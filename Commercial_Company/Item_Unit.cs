@@ -14,9 +14,20 @@ namespace Commercial_Company
     
     public partial class Item_Unit
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Item_Unit()
+        {
+            this.Export_Qty = new HashSet<Export_Qty>();
+            this.Import_Qty = new HashSet<Import_Qty>();
+        }
+    
         public int Item_ID { get; set; }
         public string Unit { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Export_Qty> Export_Qty { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Import_Qty> Import_Qty { get; set; }
         public virtual Item Item { get; set; }
     }
 }

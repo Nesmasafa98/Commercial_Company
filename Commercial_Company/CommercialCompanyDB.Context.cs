@@ -39,6 +39,16 @@ namespace Commercial_Company
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Warehouse> Warehouses { get; set; }
     
+        public virtual ObjectResult<selectImportItems_SP_Result> selectImportItems_SP()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectImportItems_SP_Result>("selectImportItems_SP");
+        }
+    
+        public virtual ObjectResult<SelectItems_SP_Result> SelectItems_SP()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItems_SP_Result>("SelectItems_SP");
+        }
+    
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
             var diagramnameParameter = diagramname != null ?
@@ -140,11 +150,6 @@ namespace Commercial_Company
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        public virtual ObjectResult<SelectItems_SP_Result> SelectItems_SP()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItems_SP_Result>("SelectItems_SP");
         }
     }
 }

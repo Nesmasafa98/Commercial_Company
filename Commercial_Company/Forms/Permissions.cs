@@ -25,15 +25,47 @@ namespace Commercial_Company
             dResult = supplyPermissionDlg.ShowDialog();
             if (dResult == DialogResult.OK)
             {
-                //CompanyApplication.Ent.Clients.Add();
-                //CompanyApplication.Ent.SaveChanges();
-                //FillClientGridView();
+                foreach(var SupplyPermission in supplyPermissionDlg.SupplyPermssionList)
+                {
+                    CompanyApplication.Ent.Import_Order.Add(SupplyPermission);
+                }
+
+                foreach (var SupplyPermssionQty in supplyPermissionDlg.SupplyPermssionItemQtyList)
+                {
+                    CompanyApplication.Ent.Import_Qty.Add(SupplyPermssionQty);
+                }
+
+                foreach (var SupplyPermissionDate in supplyPermissionDlg.SupplyPermissionItemDateList)
+                {
+                    CompanyApplication.Ent.Import_Item_Date.Add(SupplyPermissionDate);
+                }
+
+                CompanyApplication.Ent.SaveChanges();
+
             }
         }
 
         private void DismissBtn_Click(object sender, EventArgs e)
         {
+            DismissPermissionDialog dismissPermissionDlg = new DismissPermissionDialog();
+            DialogResult dResult;
+            dismissPermissionDlg.DialogType = "Add Supply Permission";
+            dResult = dismissPermissionDlg.ShowDialog();
+            if (dResult == DialogResult.OK)
+            {
+                foreach (var DismissPermission in dismissPermissionDlg.DismissPermissionList)
+                {
+                    CompanyApplication.Ent.Export_Order.Add(DismissPermission);
+                }
 
+                foreach (var DismissPermissionQty in dismissPermissionDlg.DismissPermssionItemQtyList)
+                {
+                    CompanyApplication.Ent.Export_Qty.Add(DismissPermissionQty);
+                }
+
+                CompanyApplication.Ent.SaveChanges();
+
+            }
         }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Commercial_CompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Commercial_CompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Client_ID" />
@@ -20,8 +20,11 @@
         <EntityType Name="Export_Order">
           <Key>
             <PropertyRef Name="Order_No" />
+            <PropertyRef Name="Client_ID" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Item_ID" />
           </Key>
-          <Property Name="Order_No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_No" Type="int" Nullable="false" />
           <Property Name="Order_Date" Type="date" Nullable="false" />
           <Property Name="Client_ID" Type="int" Nullable="false" />
           <Property Name="Ware_Name" Type="varchar" MaxLength="50" Nullable="false" />
@@ -30,25 +33,42 @@
         <EntityType Name="Export_Qty">
           <Key>
             <PropertyRef Name="Order_No" />
+            <PropertyRef Name="Item_ID" />
+            <PropertyRef Name="Item_Qty" />
+            <PropertyRef Name="Unit" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Client_ID" />
           </Key>
           <Property Name="Order_No" Type="int" Nullable="false" />
           <Property Name="Item_ID" Type="int" Nullable="false" />
           <Property Name="Item_Qty" Type="int" Nullable="false" />
+          <Property Name="Unit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ware_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Client_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Import_Item_Date">
           <Key>
             <PropertyRef Name="Order_No" />
             <PropertyRef Name="Item_ProDate" />
+            <PropertyRef Name="Item_ID" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Supplier_ID" />
           </Key>
           <Property Name="Order_No" Type="int" Nullable="false" />
           <Property Name="Item_ProDate" Type="date" Nullable="false" />
-          <Property Name="Item_ExpDuration" Type="date" Nullable="false" />
+          <Property Name="Item_ExpDuration" Type="int" Nullable="false" />
+          <Property Name="Item_ID" Type="int" Nullable="false" />
+          <Property Name="Ware_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Supplier_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Import_Order">
           <Key>
             <PropertyRef Name="Order_No" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Supplier_ID" />
+            <PropertyRef Name="Item_ID" />
           </Key>
-          <Property Name="Order_No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_No" Type="int" Nullable="false" />
           <Property Name="Order_Date" Type="date" Nullable="false" />
           <Property Name="Ware_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Supplier_ID" Type="int" Nullable="false" />
@@ -57,10 +77,18 @@
         <EntityType Name="Import_Qty">
           <Key>
             <PropertyRef Name="Order_No" />
+            <PropertyRef Name="Item_ID" />
+            <PropertyRef Name="Item_Qty" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Supplier_ID" />
+            <PropertyRef Name="Unit" />
           </Key>
           <Property Name="Order_No" Type="int" Nullable="false" />
           <Property Name="Item_ID" Type="int" Nullable="false" />
           <Property Name="Item_Qty" Type="int" Nullable="false" />
+          <Property Name="Ware_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Supplier_ID" Type="int" Nullable="false" />
+          <Property Name="Unit" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -127,18 +155,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Export_Order_Export_Qty">
-          <End Role="Export_Qty" Type="Self.Export_Qty" Multiplicity="1" />
-          <End Role="Export_Order" Type="Self.Export_Order" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Export_Qty">
-              <PropertyRef Name="Order_No" />
-            </Principal>
-            <Dependent Role="Export_Order">
-              <PropertyRef Name="Order_No" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Export_Order_Item">
           <End Role="Item" Type="Self.Item" Multiplicity="1" />
           <End Role="Export_Order" Type="Self.Export_Order" Multiplicity="*" />
@@ -163,6 +179,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Export_Qty_Export_Order">
+          <End Role="Export_Order" Type="Self.Export_Order" Multiplicity="1" />
+          <End Role="Export_Qty" Type="Self.Export_Qty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Export_Order">
+              <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Client_ID" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Item_ID" />
+            </Principal>
+            <Dependent Role="Export_Qty">
+              <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Client_ID" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Export_Qty_Item">
           <End Role="Item" Type="Self.Item" Multiplicity="1" />
           <End Role="Export_Qty" Type="Self.Export_Qty" Multiplicity="*" />
@@ -175,15 +209,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Export_Qty_Item_Unit">
+          <End Role="Item_Unit" Type="Self.Item_Unit" Multiplicity="1" />
+          <End Role="Export_Qty" Type="Self.Export_Qty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_Unit">
+              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Unit" />
+            </Principal>
+            <Dependent Role="Export_Qty">
+              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Import_Item_Date_Import_Order">
           <End Role="Import_Order" Type="Self.Import_Order" Multiplicity="1" />
           <End Role="Import_Item_Date" Type="Self.Import_Item_Date" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Import_Order">
               <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Supplier_ID" />
+              <PropertyRef Name="Item_ID" />
             </Principal>
             <Dependent Role="Import_Item_Date">
               <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Supplier_ID" />
+              <PropertyRef Name="Item_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -225,13 +279,19 @@
         </Association>
         <Association Name="FK_Import_Qty_Import_Order">
           <End Role="Import_Order" Type="Self.Import_Order" Multiplicity="1" />
-          <End Role="Import_Qty" Type="Self.Import_Qty" Multiplicity="0..1" />
+          <End Role="Import_Qty" Type="Self.Import_Qty" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Import_Order">
               <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Supplier_ID" />
+              <PropertyRef Name="Item_ID" />
             </Principal>
             <Dependent Role="Import_Qty">
               <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Supplier_ID" />
+              <PropertyRef Name="Item_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -244,6 +304,20 @@
             </Principal>
             <Dependent Role="Import_Qty">
               <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Import_Qty_Item_Unit">
+          <End Role="Item_Unit" Type="Self.Item_Unit" Multiplicity="1" />
+          <End Role="Import_Qty" Type="Self.Import_Qty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_Unit">
+              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Unit" />
+            </Principal>
+            <Dependent Role="Import_Qty">
+              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Unit" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -284,6 +358,7 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="selectImportItems_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SelectItems_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -332,10 +407,6 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="Export_Order" EntitySet="Export_Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Export_Order_Export_Qty" Association="Self.FK_Export_Order_Export_Qty">
-            <End Role="Export_Qty" EntitySet="Export_Qty" />
-            <End Role="Export_Order" EntitySet="Export_Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_Export_Order_Item" Association="Self.FK_Export_Order_Item">
             <End Role="Item" EntitySet="Item" />
             <End Role="Export_Order" EntitySet="Export_Order" />
@@ -344,8 +415,16 @@
             <End Role="Warehouse" EntitySet="Warehouse" />
             <End Role="Export_Order" EntitySet="Export_Order" />
           </AssociationSet>
+          <AssociationSet Name="FK_Export_Qty_Export_Order" Association="Self.FK_Export_Qty_Export_Order">
+            <End Role="Export_Order" EntitySet="Export_Order" />
+            <End Role="Export_Qty" EntitySet="Export_Qty" />
+          </AssociationSet>
           <AssociationSet Name="FK_Export_Qty_Item" Association="Self.FK_Export_Qty_Item">
             <End Role="Item" EntitySet="Item" />
+            <End Role="Export_Qty" EntitySet="Export_Qty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Export_Qty_Item_Unit" Association="Self.FK_Export_Qty_Item_Unit">
+            <End Role="Item_Unit" EntitySet="Item_Unit" />
             <End Role="Export_Qty" EntitySet="Export_Qty" />
           </AssociationSet>
           <AssociationSet Name="FK_Import_Item_Date_Import_Order" Association="Self.FK_Import_Item_Date_Import_Order">
@@ -372,6 +451,10 @@
             <End Role="Item" EntitySet="Item" />
             <End Role="Import_Qty" EntitySet="Import_Qty" />
           </AssociationSet>
+          <AssociationSet Name="FK_Import_Qty_Item_Unit" Association="Self.FK_Import_Qty_Item_Unit">
+            <End Role="Item_Unit" EntitySet="Item_Unit" />
+            <End Role="Import_Qty" EntitySet="Import_Qty" />
+          </AssociationSet>
           <AssociationSet Name="FK_Item_Unit_Item" Association="Self.FK_Item_Unit_Item">
             <End Role="Item" EntitySet="Item" />
             <End Role="Item_Unit" EntitySet="Item_Unit" />
@@ -385,7 +468,8 @@
             <End Role="Item_Warehouse" EntitySet="Item_Warehouse" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Commercial_CompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -405,42 +489,63 @@
         <EntityType Name="Export_Order">
           <Key>
             <PropertyRef Name="Order_No" />
+            <PropertyRef Name="Client_ID" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Item_ID" />
           </Key>
-          <Property Name="Order_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_No" Type="Int32" Nullable="false" />
           <Property Name="Order_Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Client_ID" Type="Int32" Nullable="false" />
           <Property Name="Ware_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Item_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Export_Order_Client" FromRole="Export_Order" ToRole="Client" />
-          <NavigationProperty Name="Export_Qty" Relationship="Self.FK_Export_Order_Export_Qty" FromRole="Export_Order" ToRole="Export_Qty" />
           <NavigationProperty Name="Item" Relationship="Self.FK_Export_Order_Item" FromRole="Export_Order" ToRole="Item" />
           <NavigationProperty Name="Warehouse" Relationship="Self.FK_Export_Order_Warehouse" FromRole="Export_Order" ToRole="Warehouse" />
+          <NavigationProperty Name="Export_Qty" Relationship="Self.FK_Export_Qty_Export_Order" FromRole="Export_Order" ToRole="Export_Qty" />
         </EntityType>
         <EntityType Name="Export_Qty">
           <Key>
             <PropertyRef Name="Order_No" />
+            <PropertyRef Name="Item_ID" />
+            <PropertyRef Name="Item_Qty" />
+            <PropertyRef Name="Unit" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Client_ID" />
           </Key>
           <Property Name="Order_No" Type="Int32" Nullable="false" />
           <Property Name="Item_ID" Type="Int32" Nullable="false" />
           <Property Name="Item_Qty" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Export_Order" Relationship="Self.FK_Export_Order_Export_Qty" FromRole="Export_Qty" ToRole="Export_Order" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ware_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Client_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Export_Order" Relationship="Self.FK_Export_Qty_Export_Order" FromRole="Export_Qty" ToRole="Export_Order" />
           <NavigationProperty Name="Item" Relationship="Self.FK_Export_Qty_Item" FromRole="Export_Qty" ToRole="Item" />
+          <NavigationProperty Name="Item_Unit" Relationship="Self.FK_Export_Qty_Item_Unit" FromRole="Export_Qty" ToRole="Item_Unit" />
         </EntityType>
         <EntityType Name="Import_Item_Date">
           <Key>
             <PropertyRef Name="Order_No" />
             <PropertyRef Name="Item_ProDate" />
+            <PropertyRef Name="Item_ID" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Supplier_ID" />
           </Key>
           <Property Name="Order_No" Type="Int32" Nullable="false" />
           <Property Name="Item_ProDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Item_ExpDuration" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Item_ExpDuration" Type="Int32" Nullable="false" />
+          <Property Name="Item_ID" Type="Int32" Nullable="false" />
+          <Property Name="Ware_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Import_Order" Relationship="Self.FK_Import_Item_Date_Import_Order" FromRole="Import_Item_Date" ToRole="Import_Order" />
         </EntityType>
         <EntityType Name="Import_Order">
           <Key>
             <PropertyRef Name="Order_No" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Supplier_ID" />
+            <PropertyRef Name="Item_ID" />
           </Key>
-          <Property Name="Order_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_No" Type="Int32" Nullable="false" />
           <Property Name="Order_Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Ware_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
@@ -454,12 +559,21 @@
         <EntityType Name="Import_Qty">
           <Key>
             <PropertyRef Name="Order_No" />
+            <PropertyRef Name="Item_ID" />
+            <PropertyRef Name="Item_Qty" />
+            <PropertyRef Name="Ware_Name" />
+            <PropertyRef Name="Supplier_ID" />
+            <PropertyRef Name="Unit" />
           </Key>
           <Property Name="Order_No" Type="Int32" Nullable="false" />
           <Property Name="Item_ID" Type="Int32" Nullable="false" />
           <Property Name="Item_Qty" Type="Int32" Nullable="false" />
+          <Property Name="Ware_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Import_Order" Relationship="Self.FK_Import_Qty_Import_Order" FromRole="Import_Qty" ToRole="Import_Order" />
           <NavigationProperty Name="Item" Relationship="Self.FK_Import_Qty_Item" FromRole="Import_Qty" ToRole="Item" />
+          <NavigationProperty Name="Item_Unit" Relationship="Self.FK_Import_Qty_Item_Unit" FromRole="Import_Qty" ToRole="Item_Unit" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -472,7 +586,7 @@
           <NavigationProperty Name="Import_Order" Relationship="Self.FK_Import_Order_Item" FromRole="Item" ToRole="Import_Order" />
           <NavigationProperty Name="Import_Qty" Relationship="Self.FK_Import_Qty_Item" FromRole="Item" ToRole="Import_Qty" />
           <NavigationProperty Name="Item_Unit" Relationship="Self.FK_Item_Unit_Item" FromRole="Item" ToRole="Item_Unit" />
-          <NavigationProperty Name="Warehouses" Relationship="Commercial_CompanyModel.Item_Warehouse" FromRole="Item" ToRole="Warehouse" />
+          <NavigationProperty Name="Warehouses" Relationship="Self.Item_Warehouse" FromRole="Item" ToRole="Warehouse" />
         </EntityType>
         <EntityType Name="Item_Unit">
           <Key>
@@ -481,6 +595,8 @@
           </Key>
           <Property Name="Item_ID" Type="Int32" Nullable="false" />
           <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Export_Qty" Relationship="Self.FK_Export_Qty_Item_Unit" FromRole="Item_Unit" ToRole="Export_Qty" />
+          <NavigationProperty Name="Import_Qty" Relationship="Self.FK_Import_Qty_Item_Unit" FromRole="Item_Unit" ToRole="Import_Qty" />
           <NavigationProperty Name="Item" Relationship="Self.FK_Item_Unit_Item" FromRole="Item_Unit" ToRole="Item" />
         </EntityType>
         <EntityType Name="Supplier">
@@ -515,7 +631,7 @@
           <Property Name="Ware_Mgr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Export_Order" Relationship="Self.FK_Export_Order_Warehouse" FromRole="Warehouse" ToRole="Export_Order" />
           <NavigationProperty Name="Import_Order" Relationship="Self.FK_Import_Order_Warehouse" FromRole="Warehouse" ToRole="Import_Order" />
-          <NavigationProperty Name="Items" Relationship="Commercial_CompanyModel.Item_Warehouse" FromRole="Warehouse" ToRole="Item" />
+          <NavigationProperty Name="Items" Relationship="Self.Item_Warehouse" FromRole="Warehouse" ToRole="Item" />
         </EntityType>
         <Association Name="FK_Export_Order_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
@@ -526,18 +642,6 @@
             </Principal>
             <Dependent Role="Export_Order">
               <PropertyRef Name="Client_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Export_Order_Export_Qty">
-          <End Role="Export_Qty" Type="Self.Export_Qty" Multiplicity="1" />
-          <End Role="Export_Order" Type="Self.Export_Order" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Export_Qty">
-              <PropertyRef Name="Order_No" />
-            </Principal>
-            <Dependent Role="Export_Order">
-              <PropertyRef Name="Order_No" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -565,6 +669,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Export_Qty_Export_Order">
+          <End Role="Export_Order" Type="Self.Export_Order" Multiplicity="1" />
+          <End Role="Export_Qty" Type="Self.Export_Qty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Export_Order">
+              <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Client_ID" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Item_ID" />
+            </Principal>
+            <Dependent Role="Export_Qty">
+              <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Client_ID" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Export_Qty_Item">
           <End Role="Item" Type="Self.Item" Multiplicity="1" />
           <End Role="Export_Qty" Type="Self.Export_Qty" Multiplicity="*" />
@@ -577,15 +699,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Export_Qty_Item_Unit">
+          <End Role="Item_Unit" Type="Self.Item_Unit" Multiplicity="1" />
+          <End Role="Export_Qty" Type="Self.Export_Qty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_Unit">
+              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Unit" />
+            </Principal>
+            <Dependent Role="Export_Qty">
+              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Import_Item_Date_Import_Order">
           <End Role="Import_Order" Type="Self.Import_Order" Multiplicity="1" />
           <End Role="Import_Item_Date" Type="Self.Import_Item_Date" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Import_Order">
               <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Supplier_ID" />
+              <PropertyRef Name="Item_ID" />
             </Principal>
             <Dependent Role="Import_Item_Date">
               <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Supplier_ID" />
+              <PropertyRef Name="Item_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -627,13 +769,19 @@
         </Association>
         <Association Name="FK_Import_Qty_Import_Order">
           <End Role="Import_Order" Type="Self.Import_Order" Multiplicity="1" />
-          <End Role="Import_Qty" Type="Self.Import_Qty" Multiplicity="0..1" />
+          <End Role="Import_Qty" Type="Self.Import_Qty" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Import_Order">
               <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Supplier_ID" />
+              <PropertyRef Name="Item_ID" />
             </Principal>
             <Dependent Role="Import_Qty">
               <PropertyRef Name="Order_No" />
+              <PropertyRef Name="Ware_Name" />
+              <PropertyRef Name="Supplier_ID" />
+              <PropertyRef Name="Item_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -649,6 +797,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Import_Qty_Item_Unit">
+          <End Role="Item_Unit" Type="Self.Item_Unit" Multiplicity="1" />
+          <End Role="Import_Qty" Type="Self.Import_Qty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item_Unit">
+              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Unit" />
+            </Principal>
+            <Dependent Role="Import_Qty">
+              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Item_Unit_Item">
           <End Role="Item" Type="Self.Item" Multiplicity="1" />
           <End Role="Item_Unit" Type="Self.Item_Unit" Multiplicity="*" />
@@ -660,6 +822,10 @@
               <PropertyRef Name="Item_ID" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="Item_Warehouse">
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="*" />
         </Association>
         <EntityContainer Name="Commercial_CompanyEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clients" EntityType="Self.Client" />
@@ -677,10 +843,6 @@
             <End Role="Client" EntitySet="Clients" />
             <End Role="Export_Order" EntitySet="Export_Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Export_Order_Export_Qty" Association="Self.FK_Export_Order_Export_Qty">
-            <End Role="Export_Qty" EntitySet="Export_Qty" />
-            <End Role="Export_Order" EntitySet="Export_Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_Export_Order_Item" Association="Self.FK_Export_Order_Item">
             <End Role="Item" EntitySet="Items" />
             <End Role="Export_Order" EntitySet="Export_Order" />
@@ -689,8 +851,16 @@
             <End Role="Warehouse" EntitySet="Warehouses" />
             <End Role="Export_Order" EntitySet="Export_Order" />
           </AssociationSet>
+          <AssociationSet Name="FK_Export_Qty_Export_Order" Association="Self.FK_Export_Qty_Export_Order">
+            <End Role="Export_Order" EntitySet="Export_Order" />
+            <End Role="Export_Qty" EntitySet="Export_Qty" />
+          </AssociationSet>
           <AssociationSet Name="FK_Export_Qty_Item" Association="Self.FK_Export_Qty_Item">
             <End Role="Item" EntitySet="Items" />
+            <End Role="Export_Qty" EntitySet="Export_Qty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Export_Qty_Item_Unit" Association="Self.FK_Export_Qty_Item_Unit">
+            <End Role="Item_Unit" EntitySet="Item_Unit" />
             <End Role="Export_Qty" EntitySet="Export_Qty" />
           </AssociationSet>
           <AssociationSet Name="FK_Import_Item_Date_Import_Order" Association="Self.FK_Import_Item_Date_Import_Order">
@@ -717,10 +887,20 @@
             <End Role="Item" EntitySet="Items" />
             <End Role="Import_Qty" EntitySet="Import_Qty" />
           </AssociationSet>
+          <AssociationSet Name="FK_Import_Qty_Item_Unit" Association="Self.FK_Import_Qty_Item_Unit">
+            <End Role="Item_Unit" EntitySet="Item_Unit" />
+            <End Role="Import_Qty" EntitySet="Import_Qty" />
+          </AssociationSet>
           <AssociationSet Name="FK_Item_Unit_Item" Association="Self.FK_Item_Unit_Item">
             <End Role="Item" EntitySet="Items" />
             <End Role="Item_Unit" EntitySet="Item_Unit" />
           </AssociationSet>
+          <AssociationSet Name="Item_Warehouse" Association="Self.Item_Warehouse">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Warehouse" EntitySet="Warehouses" />
+          </AssociationSet>
+          <FunctionImport Name="selectImportItems_SP" ReturnType="Collection(Commercial_CompanyModel.selectImportItems_SP_Result)" />
+          <FunctionImport Name="SelectItems_SP" ReturnType="Collection(Commercial_CompanyModel.SelectItems_SP_Result)" />
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -751,12 +931,18 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <AssociationSet Name="Item_Warehouse" Association="Commercial_CompanyModel.Item_Warehouse">
-            <End Role="Item" EntitySet="Items" />
-            <End Role="Warehouse" EntitySet="Warehouses" />
-          </AssociationSet>
-          <FunctionImport Name="SelectItems_SP" ReturnType="Collection(Commercial_CompanyModel.SelectItems_SP_Result)" />
         </EntityContainer>
+        <ComplexType Name="selectImportItems_SP_Result">
+          <Property Type="String" Name="Item_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Item_Qty" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SelectItems_SP_Result">
+          <Property Type="Int32" Name="Item_ID" Nullable="false" />
+          <Property Type="String" Name="Item_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Ware_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -767,16 +953,6 @@
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
-        <Association Name="Item_Warehouse">
-          <End Type="Commercial_CompanyModel.Item" Role="Item" Multiplicity="*" />
-          <End Type="Commercial_CompanyModel.Warehouse" Role="Warehouse" Multiplicity="*" />
-        </Association>
-        <ComplexType Name="SelectItems_SP_Result">
-          <Property Type="Int32" Name="Item_ID" Nullable="false" />
-          <Property Type="String" Name="Item_Name" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Ware_Name" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -814,6 +990,9 @@
                 <ScalarProperty Name="Order_No" ColumnName="Order_No" />
                 <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
                 <ScalarProperty Name="Item_Qty" ColumnName="Item_Qty" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
+                <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -823,6 +1002,9 @@
                 <ScalarProperty Name="Order_No" ColumnName="Order_No" />
                 <ScalarProperty Name="Item_ProDate" ColumnName="Item_ProDate" />
                 <ScalarProperty Name="Item_ExpDuration" ColumnName="Item_ExpDuration" />
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -843,6 +1025,9 @@
                 <ScalarProperty Name="Order_No" ColumnName="Order_No" />
                 <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
                 <ScalarProperty Name="Item_Qty" ColumnName="Item_Qty" />
+                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -895,6 +1080,33 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="Item_Warehouse" TypeName="Commercial_CompanyModel.Item_Warehouse" StoreEntitySet="Item_Warehouse">
+            <EndProperty Name="Item">
+              <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+            </EndProperty>
+            <EndProperty Name="Warehouse">
+              <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="selectImportItems_SP" FunctionName="Commercial_CompanyModel.Store.selectImportItems_SP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Commercial_CompanyModel.selectImportItems_SP_Result">
+                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Item_Qty" ColumnName="Item_Qty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectItems_SP" FunctionName="Commercial_CompanyModel.Store.SelectItems_SP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Commercial_CompanyModel.SelectItems_SP_Result">
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Commercial_CompanyModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Commercial_CompanyModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Commercial_CompanyModel.Store.sp_dropdiagram" />
@@ -919,24 +1131,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Commercial_CompanyModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Commercial_CompanyModel.Store.sp_upgraddiagrams" />
-          <AssociationSetMapping Name="Item_Warehouse" TypeName="Commercial_CompanyModel.Item_Warehouse" StoreEntitySet="Item_Warehouse">
-            <EndProperty Name="Warehouse">
-              <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
-            </EndProperty>
-            <EndProperty Name="Item">
-              <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="SelectItems_SP" FunctionName="Commercial_CompanyModel.Store.SelectItems_SP">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Commercial_CompanyModel.SelectItems_SP_Result">
-                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
-                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

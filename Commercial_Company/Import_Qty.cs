@@ -17,8 +17,12 @@ namespace Commercial_Company
         public int Order_No { get; set; }
         public int Item_ID { get; set; }
         public int Item_Qty { get; set; }
+        public string Ware_Name { get; set; }
+        public int Supplier_ID { get; set; }
+        public string Unit { get; set; }
     
         public virtual Import_Order Import_Order { get; set; }
         public virtual Item Item { get; set; }
+        public virtual Item_Unit Item_Unit { get; set; }
     }
 }

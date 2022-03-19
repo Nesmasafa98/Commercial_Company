@@ -10,19 +10,11 @@
 namespace Commercial_Company
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Export_Qty
+    public partial class selectImportItems_SP_Result
     {
-        public int Order_No { get; set; }
-        public int Item_ID { get; set; }
-        public int Item_Qty { get; set; }
+        public string Item_Name { get; set; }
         public string Unit { get; set; }
-        public string Ware_Name { get; set; }
-        public int Client_ID { get; set; }
-    
-        public virtual Export_Order Export_Order { get; set; }
-        public virtual Item Item { get; set; }
-        public virtual Item_Unit Item_Unit { get; set; }
+        public int Item_Qty { get; set; }
     }
 }

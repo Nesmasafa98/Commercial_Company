@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.DialogTypeLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SupplyyDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.WarehouseComboBox = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ImportQtyGridView = new System.Windows.Forms.DataGridView();
             this.ItemNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemUnitCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemQtyCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,24 +50,24 @@
             this.ProdDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ExpTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ApplyBtn = new System.Windows.Forms.Button();
+            this.CancelBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ImportQtyGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // DialogTypeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(323, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Supply Permssion";
+            this.DialogTypeLabel.AutoSize = true;
+            this.DialogTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DialogTypeLabel.Location = new System.Drawing.Point(12, 9);
+            this.DialogTypeLabel.Name = "DialogTypeLabel";
+            this.DialogTypeLabel.Size = new System.Drawing.Size(323, 40);
+            this.DialogTypeLabel.TabIndex = 0;
+            this.DialogTypeLabel.Text = "Supply Permssion";
             // 
             // label2
             // 
@@ -101,28 +101,30 @@
             this.WarehouseComboBox.Name = "WarehouseComboBox";
             this.WarehouseComboBox.Size = new System.Drawing.Size(299, 28);
             this.WarehouseComboBox.TabIndex = 4;
+            this.WarehouseComboBox.SelectedIndexChanged += new System.EventHandler(this.WarehouseComboBox_SelectedIndexChanged);
             // 
-            // dataGridView1
+            // ImportQtyGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ImportQtyGridView.AllowUserToAddRows = false;
+            this.ImportQtyGridView.AllowUserToDeleteRows = false;
+            this.ImportQtyGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ImportQtyGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemNameCol,
             this.ItemUnitCol,
             this.ItemQtyCol,
             this.ItemDelCol});
-            this.dataGridView1.Location = new System.Drawing.Point(795, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(338, 429);
-            this.dataGridView1.TabIndex = 5;
+            this.ImportQtyGridView.Location = new System.Drawing.Point(795, 12);
+            this.ImportQtyGridView.Name = "ImportQtyGridView";
+            this.ImportQtyGridView.ReadOnly = true;
+            this.ImportQtyGridView.RowHeadersWidth = 62;
+            this.ImportQtyGridView.RowTemplate.Height = 28;
+            this.ImportQtyGridView.Size = new System.Drawing.Size(338, 429);
+            this.ImportQtyGridView.TabIndex = 5;
             // 
             // ItemNameCol
             // 
             this.ItemNameCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemNameCol.DataPropertyName = "Name";
             this.ItemNameCol.HeaderText = "Name";
             this.ItemNameCol.MinimumWidth = 8;
             this.ItemNameCol.Name = "ItemNameCol";
@@ -131,6 +133,7 @@
             // ItemUnitCol
             // 
             this.ItemUnitCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemUnitCol.DataPropertyName = "Unit";
             this.ItemUnitCol.HeaderText = "Unit";
             this.ItemUnitCol.MinimumWidth = 8;
             this.ItemUnitCol.Name = "ItemUnitCol";
@@ -139,6 +142,7 @@
             // ItemQtyCol
             // 
             this.ItemQtyCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemQtyCol.DataPropertyName = "Qty";
             this.ItemQtyCol.HeaderText = "Qty";
             this.ItemQtyCol.MinimumWidth = 8;
             this.ItemQtyCol.Name = "ItemQtyCol";
@@ -160,6 +164,7 @@
             this.ItemComboBox.Name = "ItemComboBox";
             this.ItemComboBox.Size = new System.Drawing.Size(226, 28);
             this.ItemComboBox.TabIndex = 7;
+            this.ItemComboBox.SelectedIndexChanged += new System.EventHandler(this.ItemComboBox_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -255,12 +260,12 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Expires In :";
             // 
-            // textBox1
+            // ExpTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(584, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(85, 26);
-            this.textBox1.TabIndex = 18;
+            this.ExpTextBox.Location = new System.Drawing.Point(584, 77);
+            this.ExpTextBox.Name = "ExpTextBox";
+            this.ExpTextBox.Size = new System.Drawing.Size(85, 26);
+            this.ExpTextBox.TabIndex = 18;
             // 
             // label10
             // 
@@ -275,7 +280,7 @@
             // 
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.ExpTextBox);
             this.groupBox1.Controls.Add(this.AddItemBtn);
             this.groupBox1.Controls.Add(this.ItemComboBox);
             this.groupBox1.Controls.Add(this.label9);
@@ -292,43 +297,47 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Details";
             // 
-            // button1
+            // ApplyBtn
             // 
-            this.button1.Location = new System.Drawing.Point(795, 453);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 33);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ApplyBtn.Location = new System.Drawing.Point(795, 453);
+            this.ApplyBtn.Name = "ApplyBtn";
+            this.ApplyBtn.Size = new System.Drawing.Size(163, 33);
+            this.ApplyBtn.TabIndex = 20;
+            this.ApplyBtn.Text = "Apply";
+            this.ApplyBtn.UseVisualStyleBackColor = true;
+            this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
             // 
-            // button2
+            // CancelBtn
             // 
-            this.button2.Location = new System.Drawing.Point(970, 453);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 33);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.CancelBtn.Location = new System.Drawing.Point(970, 453);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(163, 33);
+            this.CancelBtn.TabIndex = 21;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // SupplyPermissionDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1145, 498);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CancelBtn);
+            this.Controls.Add(this.ApplyBtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SupplierComboBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ImportQtyGridView);
             this.Controls.Add(this.WarehouseComboBox);
             this.Controls.Add(this.SupplyyDateTimePicker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DialogTypeLabel);
             this.Name = "SupplyPermissionDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SupplyPermissionDialog";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.SupplyPermissionDialog_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ImportQtyGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -338,21 +347,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label DialogTypeLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker SupplyyDateTimePicker;
         private System.Windows.Forms.ComboBox WarehouseComboBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ImportQtyGridView;
         private System.Windows.Forms.ComboBox ItemComboBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox UnitCombox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button AddItemBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemNameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemQtyCol;
-        private System.Windows.Forms.DataGridViewImageColumn ItemDelCol;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox QtyTextBox;
         private System.Windows.Forms.ComboBox SupplierComboBox;
@@ -360,10 +365,14 @@
         private System.Windows.Forms.DateTimePicker ProdDateTimePicker;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ExpTextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ApplyBtn;
+        private System.Windows.Forms.Button CancelBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemQtyCol;
+        private System.Windows.Forms.DataGridViewImageColumn ItemDelCol;
     }
 }

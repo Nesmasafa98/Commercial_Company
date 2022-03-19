@@ -1,4 +1,4 @@
-﻿namespace Commercial_Company.Forms
+﻿namespace Commercial_Company
 {
     partial class DismissPermissionDialog
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
+            this.CancelBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.AddItemBtn = new System.Windows.Forms.Button();
@@ -37,31 +37,31 @@
             this.UnitCombox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.QtyTextBox = new System.Windows.Forms.TextBox();
-            this.SupplierComboBox = new System.Windows.Forms.ComboBox();
+            this.ClientComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.ItemQtyCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemUnitCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ExportGridView = new System.Windows.Forms.DataGridView();
             this.ItemDelCol = new System.Windows.Forms.DataGridViewImageColumn();
             this.WarehouseComboBox = new System.Windows.Forms.ComboBox();
-            this.SupplyyDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DismissDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.DialogTypeLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExportGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // CancelBtn
             // 
-            this.button2.Location = new System.Drawing.Point(970, 453);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 33);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.CancelBtn.Location = new System.Drawing.Point(970, 453);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(163, 33);
+            this.CancelBtn.TabIndex = 32;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -90,12 +90,13 @@
             // 
             // AddItemBtn
             // 
-            this.AddItemBtn.Location = new System.Drawing.Point(10, 92);
+            this.AddItemBtn.Location = new System.Drawing.Point(511, 95);
             this.AddItemBtn.Name = "AddItemBtn";
             this.AddItemBtn.Size = new System.Drawing.Size(221, 33);
             this.AddItemBtn.TabIndex = 10;
             this.AddItemBtn.Text = "Add Item";
             this.AddItemBtn.UseVisualStyleBackColor = true;
+            this.AddItemBtn.Click += new System.EventHandler(this.AddItemBtn_Click);
             // 
             // ItemComboBox
             // 
@@ -104,6 +105,7 @@
             this.ItemComboBox.Name = "ItemComboBox";
             this.ItemComboBox.Size = new System.Drawing.Size(226, 28);
             this.ItemComboBox.TabIndex = 7;
+            this.ItemComboBox.SelectedIndexChanged += new System.EventHandler(this.ItemComboBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -138,13 +140,13 @@
             this.QtyTextBox.Size = new System.Drawing.Size(129, 26);
             this.QtyTextBox.TabIndex = 12;
             // 
-            // SupplierComboBox
+            // ClientComboBox
             // 
-            this.SupplierComboBox.FormattingEnabled = true;
-            this.SupplierComboBox.Location = new System.Drawing.Point(121, 130);
-            this.SupplierComboBox.Name = "SupplierComboBox";
-            this.SupplierComboBox.Size = new System.Drawing.Size(299, 28);
-            this.SupplierComboBox.TabIndex = 29;
+            this.ClientComboBox.FormattingEnabled = true;
+            this.ClientComboBox.Location = new System.Drawing.Point(121, 130);
+            this.ClientComboBox.Name = "ClientComboBox";
+            this.ClientComboBox.Size = new System.Drawing.Size(299, 28);
+            this.ClientComboBox.TabIndex = 29;
             // 
             // label7
             // 
@@ -163,6 +165,7 @@
             this.button1.TabIndex = 31;
             this.button1.Text = "Apply";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // ItemQtyCol
             // 
@@ -188,23 +191,23 @@
             this.ItemNameCol.Name = "ItemNameCol";
             this.ItemNameCol.ReadOnly = true;
             // 
-            // dataGridView1
+            // ExportGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ExportGridView.AllowUserToAddRows = false;
+            this.ExportGridView.AllowUserToDeleteRows = false;
+            this.ExportGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ExportGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemNameCol,
             this.ItemUnitCol,
             this.ItemQtyCol,
             this.ItemDelCol});
-            this.dataGridView1.Location = new System.Drawing.Point(795, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(338, 429);
-            this.dataGridView1.TabIndex = 27;
+            this.ExportGridView.Location = new System.Drawing.Point(795, 12);
+            this.ExportGridView.Name = "ExportGridView";
+            this.ExportGridView.ReadOnly = true;
+            this.ExportGridView.RowHeadersWidth = 62;
+            this.ExportGridView.RowTemplate.Height = 28;
+            this.ExportGridView.Size = new System.Drawing.Size(338, 429);
+            this.ExportGridView.TabIndex = 27;
             // 
             // ItemDelCol
             // 
@@ -222,13 +225,14 @@
             this.WarehouseComboBox.Name = "WarehouseComboBox";
             this.WarehouseComboBox.Size = new System.Drawing.Size(299, 28);
             this.WarehouseComboBox.TabIndex = 26;
+            this.WarehouseComboBox.SelectedIndexChanged += new System.EventHandler(this.WarehouseComboBox_SelectedIndexChanged);
             // 
-            // SupplyyDateTimePicker
+            // DismissDateTimePicker
             // 
-            this.SupplyyDateTimePicker.Location = new System.Drawing.Point(82, 189);
-            this.SupplyyDateTimePicker.Name = "SupplyyDateTimePicker";
-            this.SupplyyDateTimePicker.Size = new System.Drawing.Size(338, 26);
-            this.SupplyyDateTimePicker.TabIndex = 25;
+            this.DismissDateTimePicker.Location = new System.Drawing.Point(82, 189);
+            this.DismissDateTimePicker.Name = "DismissDateTimePicker";
+            this.DismissDateTimePicker.Size = new System.Drawing.Size(338, 26);
+            this.DismissDateTimePicker.TabIndex = 25;
             // 
             // label3
             // 
@@ -248,37 +252,38 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Warehouse :";
             // 
-            // label1
+            // DialogTypeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(340, 40);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Dismiss Permssion";
+            this.DialogTypeLabel.AutoSize = true;
+            this.DialogTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DialogTypeLabel.Location = new System.Drawing.Point(12, 9);
+            this.DialogTypeLabel.Name = "DialogTypeLabel";
+            this.DialogTypeLabel.Size = new System.Drawing.Size(340, 40);
+            this.DialogTypeLabel.TabIndex = 22;
+            this.DialogTypeLabel.Text = "Dismiss Permssion";
             // 
             // DismissPermissionDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1146, 499);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.SupplierComboBox);
+            this.Controls.Add(this.ClientComboBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ExportGridView);
             this.Controls.Add(this.WarehouseComboBox);
-            this.Controls.Add(this.SupplyyDateTimePicker);
+            this.Controls.Add(this.DismissDateTimePicker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DialogTypeLabel);
             this.Name = "DismissPermissionDialog";
             this.Text = "DismissPermissionDialog";
+            this.Load += new System.EventHandler(this.DismissPermissionDialog_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExportGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,7 +291,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button AddItemBtn;
@@ -295,18 +300,18 @@
         private System.Windows.Forms.ComboBox UnitCombox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox QtyTextBox;
-        private System.Windows.Forms.ComboBox SupplierComboBox;
+        private System.Windows.Forms.ComboBox ClientComboBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemQtyCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemNameCol;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ExportGridView;
         private System.Windows.Forms.DataGridViewImageColumn ItemDelCol;
         private System.Windows.Forms.ComboBox WarehouseComboBox;
-        private System.Windows.Forms.DateTimePicker SupplyyDateTimePicker;
+        private System.Windows.Forms.DateTimePicker DismissDateTimePicker;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label DialogTypeLabel;
     }
 }

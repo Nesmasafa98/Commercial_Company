@@ -18,6 +18,7 @@ namespace Commercial_Company
         public Import_Order()
         {
             this.Import_Item_Date = new HashSet<Import_Item_Date>();
+            this.Import_Qty = new HashSet<Import_Qty>();
         }
     
         public int Order_No { get; set; }
@@ -31,6 +32,7 @@ namespace Commercial_Company
         public virtual Item Item { get; set; }
         public virtual Supplier Supplier { get; set; }
         public virtual Warehouse Warehouse { get; set; }
-        public virtual Import_Qty Import_Qty { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Import_Qty> Import_Qty { get; set; }
     }
 }
