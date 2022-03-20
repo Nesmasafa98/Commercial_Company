@@ -122,14 +122,14 @@ namespace Commercial_Company
                 SupplyPermissionItemDate.Item_ProDate = ProdDateTimePicker.Value;
                 SupplyPermissionItemDate.Item_ExpDuration = int.Parse(ExpTextBox.Text);
 
-                if (SupplyPermssionList.Count != 0)
+                if (SupplyPermissionItemDateList.Count != 0)
                 {
-                    int ListCount = SupplyPermssionList.Count;
+                    int ListCount = SupplyPermissionItemDateList.Count;
                     for (int i = 0; i < ListCount; i++)
                     {
                         for (int j = 0; j < PrevItemID.Count; j++)
                         {
-                            if (SupplyPermssionList[i].Item_ID != PrevItemID[j])
+                            if (SupplyPermissionItemDateList[i].Item_ID != PrevItemID[j])
                             {
                                 SupplyPermissionItemDateList.Add(SupplyPermissionItemDate);
                             }

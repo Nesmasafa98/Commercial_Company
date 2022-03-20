@@ -108,9 +108,9 @@ namespace Commercial_Company
 
                 string ClientName = ClientComboBox.Text;
 
-                int ClientID = (from supplier in CompanyApplication.Ent.Suppliers
-                                  where supplier.Supplier_Name == ClientName
-                                  select supplier.Supplier_ID).First();
+                int ClientID = (from clients in CompanyApplication.Ent.Clients
+                                  where clients.Client_Name == ClientName
+                                  select clients.Client_ID).First();
 
                 DismissPermission.Order_No = DismissPermissionNo + 1;
                 DismissPermission.Order_Date = DismissDateTimePicker.Value;

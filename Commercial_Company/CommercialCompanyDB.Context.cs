@@ -151,5 +151,10 @@ namespace Commercial_Company
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<SelectWarheouse_Report_Result> SelectWarheouse_Report()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectWarheouse_Report_Result>("SelectWarheouse_Report");
+        }
     }
 }

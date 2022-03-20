@@ -18,6 +18,8 @@ namespace Commercial_Company
         SupplierForm SupplierForm;
         ClientForm ClientForm;
         Permissions PermissionsForm;
+        TransactionsForm TransactionsForm;
+        ReportsForm ReportsForm;
         public CompanyApplication()
         {
             InitializeComponent();
@@ -30,7 +32,8 @@ namespace Commercial_Company
             SupplierForm = new SupplierForm();
             ClientForm = new ClientForm();
             PermissionsForm = new Permissions();
-
+            TransactionsForm = new TransactionsForm();
+            ReportsForm = new ReportsForm();
         }
 
         private void WarehouseBtn_Click(object sender, EventArgs e)
@@ -45,6 +48,8 @@ namespace Commercial_Company
             SupplierForm.Hide();
             ClientForm.Hide();
             PermissionsForm.Hide();
+            TransactionsForm.Hide();
+            ReportsForm.Hide();
         }
 
         private void ItemBtn_Click(object sender, EventArgs e)
@@ -59,6 +64,8 @@ namespace Commercial_Company
             SupplierForm.Hide();
             ClientForm.Hide();
             PermissionsForm.Hide();
+            TransactionsForm.Hide();
+            ReportsForm.Hide();
         }
 
         private void SupplierBtn_Click(object sender, EventArgs e)
@@ -73,6 +80,8 @@ namespace Commercial_Company
             WarehouseForm.Hide();
             ClientForm.Hide();
             PermissionsForm.Hide();
+            TransactionsForm.Hide();
+            ReportsForm.Hide();
         }
 
         private void ClientBtn_Click(object sender, EventArgs e)
@@ -87,6 +96,8 @@ namespace Commercial_Company
             WarehouseForm.Hide();
             SupplierForm.Hide();
             PermissionsForm.Hide();
+            TransactionsForm.Hide();
+            ReportsForm.Hide();
         }
 
         private void PermissionsBtn_Click(object sender, EventArgs e)
@@ -97,6 +108,40 @@ namespace Commercial_Company
             PermissionsForm.FormBorderStyle = FormBorderStyle.None;
             this.MainPanel.Controls.Add(PermissionsForm);
             PermissionsForm.Show();
+            ClientForm.Hide();
+            ItemForm.Hide();
+            WarehouseForm.Hide();
+            SupplierForm.Hide();
+            TransactionsForm.Hide();
+            ReportsForm.Hide();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            TransactionsForm.Dock = DockStyle.Fill;
+            TransactionsForm.TopLevel = false;
+            TransactionsForm.TopMost = true;
+            TransactionsForm.FormBorderStyle = FormBorderStyle.None;
+            this.MainPanel.Controls.Add(TransactionsForm);
+            TransactionsForm.Show();
+            PermissionsForm.Hide();
+            ClientForm.Hide();
+            ItemForm.Hide();
+            WarehouseForm.Hide();
+            SupplierForm.Hide();
+            ReportsForm.Hide();
+        }
+
+        private void ReportsBtn_Click(object sender, EventArgs e)
+        {
+            ReportsForm.Dock = DockStyle.Fill;
+            ReportsForm.TopLevel = false;
+            ReportsForm.TopMost = true;
+            ReportsForm.FormBorderStyle = FormBorderStyle.None;
+            this.MainPanel.Controls.Add(ReportsForm);
+            ReportsForm.Show();
+            TransactionsForm.Hide();
+            PermissionsForm.Hide();
             ClientForm.Hide();
             ItemForm.Hide();
             WarehouseForm.Hide();

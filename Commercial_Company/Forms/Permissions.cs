@@ -49,7 +49,7 @@ namespace Commercial_Company
         {
             DismissPermissionDialog dismissPermissionDlg = new DismissPermissionDialog();
             DialogResult dResult;
-            dismissPermissionDlg.DialogType = "Add Supply Permission";
+            dismissPermissionDlg.DialogType = "Add Dismiss Permission";
             dResult = dismissPermissionDlg.ShowDialog();
             if (dResult == DialogResult.OK)
             {
