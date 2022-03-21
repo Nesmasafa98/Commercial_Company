@@ -116,10 +116,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Commercial_CompanyDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Commercial_CompanyDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Commercial_CompanyDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Commercial_CompanyDataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Commercial_CompanyDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Commercial_CompanyDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Commercial_CompanyDataSet4.xsd</DependentUpon>
     </Compile>
     <Compile Include="Export_Order.cs">
       <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
@@ -307,6 +317,8 @@
     <EmbeddedResource Include="Forms\WarehouseDialog.resx">
       <DependentUpon>WarehouseDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ItemsDurationReport.rdlc" />
+    <EmbeddedResource Include="ItemsExpReport.rdlc" />
     <EmbeddedResource Include="ItemsMovementReport.rdlc" />
     <EmbeddedResource Include="ItemsReport.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -350,6 +362,17 @@
     <None Include="Commercial_CompanyDataSet1.xss">
       <DependentUpon>Commercial_CompanyDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="Commercial_CompanyDataSet2.xsc">
+      <DependentUpon>Commercial_CompanyDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Commercial_CompanyDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Commercial_CompanyDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Commercial_CompanyDataSet2.xss">
+      <DependentUpon>Commercial_CompanyDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Commercial_CompanyDataSet3.xsc">
       <DependentUpon>Commercial_CompanyDataSet3.xsd</DependentUpon>
     </None>
@@ -361,7 +384,19 @@
     <None Include="Commercial_CompanyDataSet3.xss">
       <DependentUpon>Commercial_CompanyDataSet3.xsd</DependentUpon>
     </None>
+    <None Include="Commercial_CompanyDataSet4.xsc">
+      <DependentUpon>Commercial_CompanyDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="Commercial_CompanyDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Commercial_CompanyDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Commercial_CompanyDataSet4.xss">
+      <DependentUpon>Commercial_CompanyDataSet4.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="PeriodInWareHouse.rdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

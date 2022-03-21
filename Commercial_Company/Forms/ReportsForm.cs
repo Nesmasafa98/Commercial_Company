@@ -20,16 +20,14 @@ namespace Commercial_Company
 
         private void ReportsForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'Commercial_CompanyDataSet.SelectItemMovement_Report' table. You can move, or remove it, as needed.
-           
-            // TODO: This line of code loads data into the 'Commercial_CompanyDataSet.SelectItemMovement_Report' table. You can move, or remove it, as needed.
-
             FillWarehouseComboBox();
             FillWarehouseGridView(WarehouseGridView);
             FillWarehouseGridView(WarehouseGridView2);
             WarehouseComboBox.Text = WarehouseComboBox.Items[0].ToString();
             string WarehouseName = WarehouseComboBox.Text;
             renderWarehouseReport(WarehouseName);
+            DurationComboBox.Text = DurationComboBox.Items[0].ToString();
+
         }
 
         private void WarehouseComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,6 +113,42 @@ namespace Commercial_Company
         {
             this.SelectItemMovement_ReportTableAdapter.Fill(this.Commercial_CompanyDataSet.SelectItemMovement_Report, WarehouseNames, FromDate, ToDate);
             this.reportViewer3.RefreshReport();
+        }
+
+        private void RenderItemsDurationReport(int Duration, string DurationType)
+        {
+            this.SelectItemsDuration_ReportTableAdapter.Fill(this.Commercial_CompanyDataSet2.SelectItemsDuration_Report, Duration, DurationType);
+            this.reportViewer4.RefreshReport();
+        }
+
+        private void ViewBtn2_Click(object sender, EventArgs e)
+        {
+            if(DurationTextBox.Text.All(Char.IsNumber) && !string.IsNullOrWhiteSpace(DurationTextBox.Text))
+            {
+                int Duration = int.Parse(DurationTextBox.Text);
+                string DurationType = DurationComboBox.Text;
+                RenderItemsDurationReport(Duration, DurationType);
+            }
+            else
+            {
+                MessageBox.Show("Please Enter A Valid Number");
+            }
+
+        }
+
+        private void ViewBtn3_Click(object sender, EventArgs e)
+        {
+
+            if (DurationTextBox2.Text.All(Char.IsNumber) && !string.IsNullOrWhiteSpace(DurationTextBox2.Text))
+            {
+                int ExpDuration = int.Parse(DurationTextBox2.Text);
+                this.SelectItemsExp_ReportTableAdapter.Fill(this.Commercial_CompanyDataSet4.SelectItemsExp_Report, ExpDuration);
+                this.reportViewer5.RefreshReport();
+            }
+            else
+            {
+                MessageBox.Show("Please Enter A Valid Number");
+            }
         }
     }
 }
