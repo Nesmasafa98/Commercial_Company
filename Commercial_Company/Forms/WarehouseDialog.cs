@@ -52,6 +52,7 @@ namespace Commercial_Company
             DialogTypeLabel.Text = DialogType;
             if (DialogType == "Edit Warehouse")
             {
+                WarehouseNameTextBox.Enabled = false;
                 WarehouseNameTextBox.Text = Warehouse.Ware_Name;
                 WarehouseLocTextBox.Text = Warehouse.Ware_Address;
                 WarehouseManagerTextBox.Text = Warehouse.Ware_Mgr;

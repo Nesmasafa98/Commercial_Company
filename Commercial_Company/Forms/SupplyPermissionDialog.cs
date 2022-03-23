@@ -293,7 +293,7 @@ namespace Commercial_Company
             ImportQtyGridView.DataSource = ImportQtyData;
             ImportQtyGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ImportQtyGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ImportQtyGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //ImportQtyGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
