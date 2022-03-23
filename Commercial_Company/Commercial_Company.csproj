@@ -419,6 +419,14 @@
   <ItemGroup>
     <None Include="bin\Debug\Images\add.ico" />
     <None Include="bin\Debug\Images\editing__1__6Sy_icon.ico" />
+    <None Include="Images\warehouse.ico" />
+    <None Include="Images\contract.ico" />
+    <None Include="Images\product.ico" />
+    <None Include="Images\report.ico" />
+    <None Include="Images\supplier.ico" />
+    <None Include="Images\user %281%29.ico" />
+    <None Include="Images\warehouse %282%29.ico" />
+    <None Include="Images\transaction.ico" />
     <Content Include="CommercialCompanyDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CommercialCompanyDB.edmx</DependentUpon>
@@ -429,14 +437,6 @@
       <DependentUpon>CommercialCompanyDB.edmx</DependentUpon>
       <LastGenOutput>CommercialCompanyDB.cs</LastGenOutput>
     </Content>
-    <None Include="Images\warehouse.ico" />
-    <None Include="Images\contract.ico" />
-    <None Include="Images\product.ico" />
-    <None Include="Images\report.ico" />
-    <None Include="Images\supplier.ico" />
-    <None Include="Images\user %281%29.ico" />
-    <None Include="Images\warehouse %282%29.ico" />
-    <None Include="Images\transaction.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

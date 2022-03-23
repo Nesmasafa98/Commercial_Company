@@ -258,7 +258,7 @@ namespace Commercial_Company
             {
                 foreach (var warehouse in Item.Warehouses)
                 {
-                    if (warehouse.Ware_Name == WarehouseName)
+                    if (warehouse.Ware_Name == WarehouseName && warehouse != null)
                     {
                         ItemComboBox.Items.Add(Item.Item_Name);
                     }

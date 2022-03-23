@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Commercial_CompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Commercial_CompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Client_ID" />
@@ -487,7 +487,8 @@
             <End Role="Item_Warehouse" EntitySet="Item_Warehouse" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Commercial_CompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -918,7 +919,26 @@
             <End Role="Warehouse" EntitySet="Warehouses" />
           </AssociationSet>
           <FunctionImport Name="selectImportItems_SP" ReturnType="Collection(Commercial_CompanyModel.selectImportItems_SP_Result)" />
+          <FunctionImport Name="SelectItemMovement_Report" ReturnType="Collection(Commercial_CompanyModel.SelectItemMovement_Report_Result)">
+            <Parameter Name="wareNameFrom" Mode="In" Type="String" />
+            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SelectItems_Report" ReturnType="Collection(Commercial_CompanyModel.SelectItems_Report_Result)">
+            <Parameter Name="wareName" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="SelectItems_SP" ReturnType="Collection(Commercial_CompanyModel.SelectItems_SP_Result)" />
+          <FunctionImport Name="SelectItemsDuration_Report" ReturnType="Collection(Commercial_CompanyModel.SelectItemsDuration_Report_Result)">
+            <Parameter Name="Duration" Mode="In" Type="Int32" />
+            <Parameter Name="DurationType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectItemsExp_Report" ReturnType="Collection(Commercial_CompanyModel.SelectItemsExp_Report_Result)">
+            <Parameter Name="Duration" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectPermission_SP" ReturnType="Collection(Commercial_CompanyModel.SelectPermission_SP_Result)" />
+          <FunctionImport Name="SelectWarheouse_Report" ReturnType="Collection(Commercial_CompanyModel.SelectWarheouse_Report_Result)">
+            <Parameter Name="wareName" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -949,52 +969,11 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <FunctionImport Name="SelectWarheouse_Report" ReturnType="Collection(Commercial_CompanyModel.SelectWarheouse_Report_Result)" >
-            <Parameter Name="wareName" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SelectItemMovement_Report" ReturnType="Collection(Commercial_CompanyModel.SelectItemMovement_Report_Result)">
-            <Parameter Name="wareNameFrom" Mode="In" Type="String" />
-            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
-            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="SelectItems_Report" ReturnType="Collection(Commercial_CompanyModel.SelectItems_Report_Result)">
-            <Parameter Name="wareName" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SelectItemsDuration_Report" ReturnType="Collection(Commercial_CompanyModel.SelectItemsDuration_Report_Result)">
-            <Parameter Name="Duration" Mode="In" Type="Int32" />
-            <Parameter Name="DurationType" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SelectItemsExp_Report" ReturnType="Collection(Commercial_CompanyModel.SelectItemsExp_Report_Result)">
-            <Parameter Name="Duration" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="SelectPermission_SP" ReturnType="Collection(Commercial_CompanyModel.SelectPermission_SP_Result)" />
         </EntityContainer>
         <ComplexType Name="selectImportItems_SP_Result">
           <Property Type="String" Name="Item_Name" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="Item_Qty" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="SelectItems_SP_Result">
-          <Property Type="Int32" Name="Item_ID" Nullable="false" />
-          <Property Type="String" Name="Item_Name" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Ware_Name" Nullable="false" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="SelectWarheouse_Report_Result">
-          <Property Type="String" Name="Ware_Name" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Ware_Address" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Ware_Mgr" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="SelectItemMovement_Report_Result">
           <Property Type="String" Name="Item_Name" Nullable="false" MaxLength="50" />
@@ -1007,6 +986,12 @@
         <ComplexType Name="SelectItems_Report_Result">
           <Property Type="Int32" Name="Item_ID" Nullable="false" />
           <Property Type="String" Name="Item_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Ware_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SelectItems_SP_Result">
+          <Property Type="Int32" Name="Item_ID" Nullable="false" />
+          <Property Type="String" Name="Item_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Ware_Name" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="SelectItemsDuration_Report_Result">
@@ -1023,6 +1008,22 @@
           <Property Type="Int32" Name="Order_No" Nullable="false" />
           <Property Type="String" Name="Type" Nullable="false" MaxLength="7" />
           <Property Type="DateTime" Name="Order_Date" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SelectWarheouse_Report_Result">
+          <Property Type="String" Name="Ware_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Ware_Address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Ware_Mgr" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1167,49 +1168,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SelectItems_SP" FunctionName="Commercial_CompanyModel.Store.SelectItems_SP">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Commercial_CompanyModel.SelectItems_SP_Result">
-                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
-                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Commercial_CompanyModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Commercial_CompanyModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Commercial_CompanyModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Commercial_CompanyModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Commercial_CompanyModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Commercial_CompanyModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Commercial_CompanyModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Commercial_CompanyModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Commercial_CompanyModel.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="SelectWarheouse_Report" FunctionName="Commercial_CompanyModel.Store.SelectWarheouse_Report">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Commercial_CompanyModel.SelectWarheouse_Report_Result">
-                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
-                <ScalarProperty Name="Ware_Address" ColumnName="Ware_Address" />
-                <ScalarProperty Name="Ware_Mgr" ColumnName="Ware_Mgr" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SelectItemMovement_Report" FunctionName="Commercial_CompanyModel.Store.SelectItemMovement_Report">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Commercial_CompanyModel.SelectItemMovement_Report_Result">
@@ -1227,6 +1185,16 @@
               <ComplexTypeMapping TypeName="Commercial_CompanyModel.SelectItems_Report_Result">
                 <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
                 <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectItems_SP" FunctionName="Commercial_CompanyModel.Store.SelectItems_SP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Commercial_CompanyModel.SelectItems_SP_Result">
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
                 <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -1258,6 +1226,39 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectWarheouse_Report" FunctionName="Commercial_CompanyModel.Store.SelectWarheouse_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Commercial_CompanyModel.SelectWarheouse_Report_Result">
+                <ScalarProperty Name="Ware_Name" ColumnName="Ware_Name" />
+                <ScalarProperty Name="Ware_Address" ColumnName="Ware_Address" />
+                <ScalarProperty Name="Ware_Mgr" ColumnName="Ware_Mgr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Commercial_CompanyModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Commercial_CompanyModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Commercial_CompanyModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Commercial_CompanyModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Commercial_CompanyModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Commercial_CompanyModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Commercial_CompanyModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Commercial_CompanyModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Commercial_CompanyModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

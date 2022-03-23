@@ -306,6 +306,7 @@
             // ItemNameCol
             // 
             this.ItemNameCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemNameCol.DataPropertyName = "Name";
             this.ItemNameCol.HeaderText = "Name";
             this.ItemNameCol.MinimumWidth = 8;
             this.ItemNameCol.Name = "ItemNameCol";
@@ -314,6 +315,7 @@
             // ItemUnitCol
             // 
             this.ItemUnitCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemUnitCol.DataPropertyName = "Unit";
             this.ItemUnitCol.HeaderText = "Unit";
             this.ItemUnitCol.MinimumWidth = 8;
             this.ItemUnitCol.Name = "ItemUnitCol";
@@ -322,6 +324,7 @@
             // ItemQtyCol
             // 
             this.ItemQtyCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemQtyCol.DataPropertyName = "Qty";
             this.ItemQtyCol.HeaderText = "Qty";
             this.ItemQtyCol.MinimumWidth = 8;
             this.ItemQtyCol.Name = "ItemQtyCol";

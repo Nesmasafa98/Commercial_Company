@@ -64,28 +64,36 @@ namespace Commercial_Company
         {
             if (e.ColumnIndex == 4)
             {
-                ItemDialog itemDlg = new ItemDialog();
-                DialogResult dResult;
-
-                int ID = int.Parse(ItemGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-                Item itm = (from item in CompanyApplication.Ent.Items
-                              where item.Item_ID == ID
-                              select item).First();
-
-                var itmUnit = (from itemUnit in CompanyApplication.Ent.Item_Unit
-                              where itemUnit.Item_ID == ID
-                              select itemUnit).ToList();
-
-                itemDlg.Item = itm;
-                itemDlg.ItemUnitList = itmUnit;
-                itemDlg.DialogType = "Edit Item";
-                MessageBox.Show(itemDlg.Item.Item_Name);
-                dResult = itemDlg.ShowDialog();
-                if (dResult == DialogResult.OK)
+                try
                 {
-                    FillItemGridView();
+                    ItemDialog itemDlg = new ItemDialog();
+                    DialogResult dResult;
+
+                    int ID = int.Parse(ItemGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                    Item itm = (from item in CompanyApplication.Ent.Items
+                                where item.Item_ID == ID
+                                select item).First();
+
+                    var itmUnit = (from itemUnit in CompanyApplication.Ent.Item_Unit
+                                   where itemUnit.Item_ID == ID
+                                   select itemUnit).ToList();
+
+                    itemDlg.Item = itm;
+                    itemDlg.ItemUnitList = itmUnit;
+                    itemDlg.DialogType = "Edit Item";
+                    dResult = itemDlg.ShowDialog();
+                    if (dResult == DialogResult.OK)
+                    {
+                        FillItemGridView();
+                    }
                 }
+                catch
+                {
+                    MessageBox.Show("System Error, Retry Later");
+                }
+                
+                
             }
         }
     }

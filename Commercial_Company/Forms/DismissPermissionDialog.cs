@@ -180,7 +180,7 @@ namespace Commercial_Company
                 DismissPermssionItemQtyList.Add(DismissPermissionItemQty);
 
 
-                ExportQtyData.Rows.Add(ItemName, UnitCombox.Text, QtyTextBox.Text);
+                ExportQtyData.Rows.Add(ItemComboBox.Text , UnitCombox.Text, QtyTextBox.Text);
                 //To Allow User To Select Only one Warehouse and Only one supplier per permission
                 WarehouseComboBox.Enabled = false;
                 ClientComboBox.Enabled = false;
@@ -254,7 +254,7 @@ namespace Commercial_Company
             ExportGridView.DataSource = ExportQtyData;
             ExportGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ExportGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ExportGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //ExportGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
         }
 
         private void Button1_Click(object sender, EventArgs e)

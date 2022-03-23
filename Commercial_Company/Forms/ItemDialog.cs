@@ -41,6 +41,7 @@ namespace Commercial_Company
                     FillWarehouseGridView(w);
                 }
                 WarehouseComboBox.Text = WarehouseGridView.Rows[0].Cells[0].Value.ToString();
+                ItemCodeTextBox.Enabled = false;
             }
             else
             {

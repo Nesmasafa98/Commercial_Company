@@ -44,9 +44,71 @@ namespace Commercial_Company
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<selectImportItems_SP_Result>("selectImportItems_SP");
         }
     
+        public virtual ObjectResult<SelectItemMovement_Report_Result> SelectItemMovement_Report(string wareNameFrom, Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate)
+        {
+            var wareNameFromParameter = wareNameFrom != null ?
+                new ObjectParameter("wareNameFrom", wareNameFrom) :
+                new ObjectParameter("wareNameFrom", typeof(string));
+    
+            var fromDateParameter = fromDate.HasValue ?
+                new ObjectParameter("FromDate", fromDate) :
+                new ObjectParameter("FromDate", typeof(System.DateTime));
+    
+            var toDateParameter = toDate.HasValue ?
+                new ObjectParameter("ToDate", toDate) :
+                new ObjectParameter("ToDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItemMovement_Report_Result>("SelectItemMovement_Report", wareNameFromParameter, fromDateParameter, toDateParameter);
+        }
+    
+        public virtual ObjectResult<SelectItems_Report_Result> SelectItems_Report(string wareName)
+        {
+            var wareNameParameter = wareName != null ?
+                new ObjectParameter("wareName", wareName) :
+                new ObjectParameter("wareName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItems_Report_Result>("SelectItems_Report", wareNameParameter);
+        }
+    
         public virtual ObjectResult<SelectItems_SP_Result> SelectItems_SP()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItems_SP_Result>("SelectItems_SP");
+        }
+    
+        public virtual ObjectResult<SelectItemsDuration_Report_Result> SelectItemsDuration_Report(Nullable<int> duration, string durationType)
+        {
+            var durationParameter = duration.HasValue ?
+                new ObjectParameter("Duration", duration) :
+                new ObjectParameter("Duration", typeof(int));
+    
+            var durationTypeParameter = durationType != null ?
+                new ObjectParameter("DurationType", durationType) :
+                new ObjectParameter("DurationType", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItemsDuration_Report_Result>("SelectItemsDuration_Report", durationParameter, durationTypeParameter);
+        }
+    
+        public virtual ObjectResult<SelectItemsExp_Report_Result> SelectItemsExp_Report(Nullable<int> duration)
+        {
+            var durationParameter = duration.HasValue ?
+                new ObjectParameter("Duration", duration) :
+                new ObjectParameter("Duration", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItemsExp_Report_Result>("SelectItemsExp_Report", durationParameter);
+        }
+    
+        public virtual ObjectResult<SelectPermission_SP_Result> SelectPermission_SP()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectPermission_SP_Result>("SelectPermission_SP");
+        }
+    
+        public virtual ObjectResult<SelectWarheouse_Report_Result> SelectWarheouse_Report(string wareName)
+        {
+            var wareNameParameter = wareName != null ?
+                new ObjectParameter("wareName", wareName) :
+                new ObjectParameter("wareName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectWarheouse_Report_Result>("SelectWarheouse_Report", wareNameParameter);
         }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -150,68 +212,6 @@ namespace Commercial_Company
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        public virtual ObjectResult<SelectWarheouse_Report_Result> SelectWarheouse_Report(string wareName)
-        {
-            var wareNameParameter = wareName != null ?
-                new ObjectParameter("wareName", wareName) :
-                new ObjectParameter("wareName", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectWarheouse_Report_Result>("SelectWarheouse_Report", wareNameParameter);
-        }
-    
-        public virtual ObjectResult<SelectItemMovement_Report_Result> SelectItemMovement_Report(string wareNameFrom, Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate)
-        {
-            var wareNameFromParameter = wareNameFrom != null ?
-                new ObjectParameter("wareNameFrom", wareNameFrom) :
-                new ObjectParameter("wareNameFrom", typeof(string));
-    
-            var fromDateParameter = fromDate.HasValue ?
-                new ObjectParameter("FromDate", fromDate) :
-                new ObjectParameter("FromDate", typeof(System.DateTime));
-    
-            var toDateParameter = toDate.HasValue ?
-                new ObjectParameter("ToDate", toDate) :
-                new ObjectParameter("ToDate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItemMovement_Report_Result>("SelectItemMovement_Report", wareNameFromParameter, fromDateParameter, toDateParameter);
-        }
-    
-        public virtual ObjectResult<SelectItems_Report_Result> SelectItems_Report(string wareName)
-        {
-            var wareNameParameter = wareName != null ?
-                new ObjectParameter("wareName", wareName) :
-                new ObjectParameter("wareName", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItems_Report_Result>("SelectItems_Report", wareNameParameter);
-        }
-    
-        public virtual ObjectResult<SelectItemsDuration_Report_Result> SelectItemsDuration_Report(Nullable<int> duration, string durationType)
-        {
-            var durationParameter = duration.HasValue ?
-                new ObjectParameter("Duration", duration) :
-                new ObjectParameter("Duration", typeof(int));
-    
-            var durationTypeParameter = durationType != null ?
-                new ObjectParameter("DurationType", durationType) :
-                new ObjectParameter("DurationType", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItemsDuration_Report_Result>("SelectItemsDuration_Report", durationParameter, durationTypeParameter);
-        }
-    
-        public virtual ObjectResult<SelectItemsExp_Report_Result> SelectItemsExp_Report(Nullable<int> duration)
-        {
-            var durationParameter = duration.HasValue ?
-                new ObjectParameter("Duration", duration) :
-                new ObjectParameter("Duration", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectItemsExp_Report_Result>("SelectItemsExp_Report", durationParameter);
-        }
-    
-        public virtual ObjectResult<SelectPermission_SP_Result> SelectPermission_SP()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectPermission_SP_Result>("SelectPermission_SP");
         }
     }
 }
