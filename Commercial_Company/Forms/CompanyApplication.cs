@@ -38,7 +38,20 @@ namespace Commercial_Company
             ReportsForm = new ReportsForm();
             PrivateFontCollection Fonts = new PrivateFontCollection();
             Fonts.AddFontFile(@"Fonts\Montserrat_Subrayada\MontserratSubrayada-Bold.ttf");
-            LogoLabel.Font = new Font(Fonts.Families[0], 16, FontStyle.Bold);
+            LogoLabel.Font = new Font(Fonts.Families[0], 18, FontStyle.Bold);
+            WarehouseForm.Dock = DockStyle.Fill;
+            WarehouseForm.TopLevel = false;
+            WarehouseForm.TopMost = true;
+            WarehouseForm.FormBorderStyle = FormBorderStyle.None;
+            this.MainPanel.Controls.Add(WarehouseForm);
+            WarehouseForm.Show();
+            WarehouseBtn.FlatAppearance.BorderColor = Color.White;
+            ItemBtn.FlatAppearance.BorderColor = Color.FromArgb(0, 27, 58);
+            ClientBtn.FlatAppearance.BorderColor = Color.FromArgb(0, 27, 58);
+            SupplierBtn.FlatAppearance.BorderColor = Color.FromArgb(0, 27, 58);
+            PermissionsBtn.FlatAppearance.BorderColor = Color.FromArgb(0, 27, 58);
+            button1.FlatAppearance.BorderColor = Color.FromArgb(0, 27, 58);
+            ReportsBtn.FlatAppearance.BorderColor = Color.FromArgb(0, 27, 58);
         }
 
         private void WarehouseBtn_Click(object sender, EventArgs e)

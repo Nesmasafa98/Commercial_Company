@@ -188,9 +188,55 @@ namespace Commercial_Company
                 SupplyPermssionItemQtyList = new List<Import_Qty>();
                 SupplyPermissionItemDateList = new List<Import_Item_Date>();
             }
-            else if(DialogType == "Edit Supply Permssion")
+            else if(DialogType == "Edit Supply Permission")
             {
+                WarehouseComboBox.Text = SupplyPermssionList[0].Ware_Name;
 
+                int ID = SupplyPermssionList[0].Supplier_ID;
+
+                string SupplierName = (from supplier in CompanyApplication.Ent.Suppliers
+                                       where supplier.Supplier_ID == ID
+                                       select supplier.Supplier_Name).First();
+
+                SupplierComboBox.Text = SupplierName;
+
+                var warehouse = from w in CompanyApplication.Ent.Warehouses
+                                select w;
+                var suppliers = from s in CompanyApplication.Ent.Suppliers
+                                select s;
+
+                foreach (var s in suppliers)
+                {
+ 
+                    int SID = s.Supplier_ID;
+                    string supplierName = (from supplier in CompanyApplication.Ent.Suppliers
+                                           where supplier.Supplier_ID == SID
+                                           select supplier.Supplier_Name).First();
+
+
+                    SupplierComboBox.Items.Add(supplierName);
+                }
+
+                foreach(var w in warehouse)
+                {
+                    WarehouseComboBox.Items.Add(w.Ware_Name);
+                }
+                
+                SupplyyDateTimePicker.Value = SupplyPermssionList[0].Order_Date;
+
+                foreach(var s in SupplyPermssionItemQtyList)
+                {
+                    string itemName = (from item in CompanyApplication.Ent.Items
+                                      where item.Item_ID == s.Item_ID
+                                      select item.Item_Name).First();
+
+                    ImportQtyGridView.Rows.Add(itemName, s.Item_Unit.Unit, s.Item_Qty);
+                }
+
+
+                groupBox1.Enabled = false;
+                WarehouseComboBox.Enabled = false;
+                SupplierComboBox.Enabled = false;
             }
             
         }
@@ -260,12 +306,55 @@ namespace Commercial_Company
             {
                 if (DialogType == "Add Supply Permission")
                 {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+
                 }
                 else if (DialogType == "Edit Supply Permission")
                 {
-                   // EditClient();
+
+                    for (int i = 0; i < SupplyPermssionList.Count; i++)
+                    {
+
+                        SupplyPermssionList[i].Order_Date = SupplyyDateTimePicker.Value;
+
+                    }
+
+                    //Error due to changing composite PK
+
+                    //for(int i =0; i< SupplyPermssionItemQtyList.Count ; i++)
+                    //{
+                    //    SupplyPermssionItemQtyList[i].Ware_Name = WarehouseComboBox.Text;
+                    //SupplyPermssionItemQtyList[i].Order_No = SupplyPermssionItemQtyList[i].Order_No;
+                    //SupplyPermssionItemQtyList[i].Item_Unit = SupplyPermssionItemQtyList[i].Item_Unit;
+                    //SupplyPermssionItemQtyList[i].Item_Qty = SupplyPermssionItemQtyList[i].Item_Qty;
+                    //SupplyPermssionItemQtyList[i].Item_ID = SupplyPermssionItemQtyList[i].Item_ID;
+                    //SupplyPermssionItemQtyList[i].Unit = SupplyPermssionItemQtyList[i].Unit;
+
+                    //    int supplierID = (from supplier in CompanyApplication.Ent.Suppliers
+                    //                      where supplier.Supplier_Name == SupplierComboBox.Text
+                    //                      select supplier.Supplier_ID).First();
+
+                    //    SupplyPermssionItemQtyList[i].Supplier_ID = supplierID;
+                    //}
+
+                    //for(int i = 0; i< SupplyPermissionItemDateList.Count; i++)
+                    //{
+                    //    SupplyPermissionItemDateList[i].Ware_Name = WarehouseComboBox.Text;
+                    //SupplyPermissionItemDateList[i].Item_ID = SupplyPermissionItemDateList[i].Item_ID;
+                    //SupplyPermissionItemDateList[i].Item_ProDate = SupplyPermissionItemDateList[i].Item_ProDate;
+                    //SupplyPermissionItemDateList[i].Order_No = SupplyPermissionItemDateList[i].Order_No;
+                    //SupplyPermissionItemDateList[i].Item_ExpDuration = SupplyPermissionItemDateList[i].Item_ExpDuration;
+                    //SupplyPermissionItemDateList[i].Import_Order = SupplyPermissionItemDateList[i].Import_Order;
+
+
+                    //    int supplierID = (from supplier in CompanyApplication.Ent.Suppliers
+                    //                      where supplier.Supplier_Name == SupplierComboBox.Text
+                    //                      select supplier.Supplier_ID).First();
+
+                    //    SupplyPermissionItemDateList[i].Supplier_ID = supplierID;
+                    //}
+
+                    CompanyApplication.Ent.SaveChanges();
+
                 }
 
                 this.DialogResult = DialogResult.OK;
@@ -285,7 +374,7 @@ namespace Commercial_Company
             if (string.IsNullOrWhiteSpace(WarehouseComboBox.Text) ||
                 string.IsNullOrWhiteSpace(SupplierComboBox.Text) ||
                 string.IsNullOrWhiteSpace(SupplyyDateTimePicker.Value.ToString()) ||
-                ImportQtyData.Rows.Count == 0
+                ImportQtyGridView.Rows.Count == 0
               )
             {
                 MessageBox.Show("Please Enter The Required Data");

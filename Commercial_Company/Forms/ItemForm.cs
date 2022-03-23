@@ -80,6 +80,7 @@ namespace Commercial_Company
                 itemDlg.Item = itm;
                 itemDlg.ItemUnitList = itmUnit;
                 itemDlg.DialogType = "Edit Item";
+                MessageBox.Show(itemDlg.Item.Item_Name);
                 dResult = itemDlg.ShowDialog();
                 if (dResult == DialogResult.OK)
                 {

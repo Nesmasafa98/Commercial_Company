@@ -92,5 +92,6 @@ namespace Commercial_Company
             Warehouse.Ware_Address = WarehouseLocTextBox.Text;
             Warehouse.Ware_Mgr= WarehouseManagerTextBox.Text;
         }
+
     }
 }

@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SupplierGridView = new System.Windows.Forms.DataGridView();
+            this.AddSupplierBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SupplierIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierTelCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,8 +43,6 @@
             this.SupplierEmailCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierSiteCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierEditCol = new System.Windows.Forms.DataGridViewImageColumn();
-            this.AddSupplierBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SupplierGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +91,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.SupplierGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.SupplierGridView.GridColor = System.Drawing.SystemColors.Control;
             this.SupplierGridView.Location = new System.Drawing.Point(12, 89);
             this.SupplierGridView.Name = "SupplierGridView";
             this.SupplierGridView.ReadOnly = true;
@@ -109,13 +110,40 @@
             this.SupplierGridView.TabIndex = 3;
             this.SupplierGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SupplierGridView_CellClick);
             // 
+            // AddSupplierBtn
+            // 
+            this.AddSupplierBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddSupplierBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.AddSupplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddSupplierBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddSupplierBtn.ForeColor = System.Drawing.Color.White;
+            this.AddSupplierBtn.Location = new System.Drawing.Point(587, 18);
+            this.AddSupplierBtn.Name = "AddSupplierBtn";
+            this.AddSupplierBtn.Size = new System.Drawing.Size(201, 50);
+            this.AddSupplierBtn.TabIndex = 2;
+            this.AddSupplierBtn.Text = "Add Supplier";
+            this.AddSupplierBtn.UseVisualStyleBackColor = false;
+            this.AddSupplierBtn.Click += new System.EventHandler(this.AddSupplierBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.label2.Location = new System.Drawing.Point(12, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 37);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Suppliers";
+            // 
             // SupplierIDCol
             // 
-            this.SupplierIDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SupplierIDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.SupplierIDCol.HeaderText = "ID";
             this.SupplierIDCol.MinimumWidth = 8;
             this.SupplierIDCol.Name = "SupplierIDCol";
             this.SupplierIDCol.ReadOnly = true;
+            this.SupplierIDCol.Width = 77;
             // 
             // SupplierNameCol
             // 
@@ -167,40 +195,14 @@
             // 
             // SupplierEditCol
             // 
-            this.SupplierEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SupplierEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.SupplierEditCol.HeaderText = "";
-            this.SupplierEditCol.Image = global::Commercial_Company.Properties.Resources.editIcon;
-            this.SupplierEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.SupplierEditCol.Image = global::Commercial_Company.Properties.Resources.editing__1__6Sy_icon;
+            this.SupplierEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.SupplierEditCol.MinimumWidth = 8;
             this.SupplierEditCol.Name = "SupplierEditCol";
             this.SupplierEditCol.ReadOnly = true;
-            this.SupplierEditCol.Width = 20;
-            // 
-            // AddSupplierBtn
-            // 
-            this.AddSupplierBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddSupplierBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
-            this.AddSupplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddSupplierBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddSupplierBtn.ForeColor = System.Drawing.Color.White;
-            this.AddSupplierBtn.Location = new System.Drawing.Point(587, 18);
-            this.AddSupplierBtn.Name = "AddSupplierBtn";
-            this.AddSupplierBtn.Size = new System.Drawing.Size(201, 50);
-            this.AddSupplierBtn.TabIndex = 2;
-            this.AddSupplierBtn.Text = "Add Supplier";
-            this.AddSupplierBtn.UseVisualStyleBackColor = false;
-            this.AddSupplierBtn.Click += new System.EventHandler(this.AddSupplierBtn_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
-            this.label2.Location = new System.Drawing.Point(12, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 37);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Suppliers";
+            this.SupplierEditCol.Width = 9;
             // 
             // SupplierForm
             // 
@@ -223,6 +225,7 @@
 
         private System.Windows.Forms.DataGridView SupplierGridView;
         private System.Windows.Forms.Button AddSupplierBtn;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierIDCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierNameCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierTelCol;
@@ -231,6 +234,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierEmailCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierSiteCol;
         private System.Windows.Forms.DataGridViewImageColumn SupplierEditCol;
-        private System.Windows.Forms.Label label2;
     }
 }

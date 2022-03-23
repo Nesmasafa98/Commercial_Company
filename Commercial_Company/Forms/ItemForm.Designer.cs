@@ -85,6 +85,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ItemGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ItemGridView.GridColor = System.Drawing.SystemColors.Control;
             this.ItemGridView.Location = new System.Drawing.Point(12, 89);
             this.ItemGridView.Name = "ItemGridView";
             this.ItemGridView.ReadOnly = true;
@@ -140,8 +141,8 @@
             this.ItemEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.ItemEditCol.FillWeight = 75F;
             this.ItemEditCol.HeaderText = "";
-            this.ItemEditCol.Image = global::Commercial_Company.Properties.Resources.editIcon;
-            this.ItemEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.ItemEditCol.Image = global::Commercial_Company.Properties.Resources.editing__1__6Sy_icon;
+            this.ItemEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.ItemEditCol.MinimumWidth = 8;
             this.ItemEditCol.Name = "ItemEditCol";
             this.ItemEditCol.ReadOnly = true;
@@ -194,11 +195,11 @@
 
         private System.Windows.Forms.DataGridView ItemGridView;
         private System.Windows.Forms.Button AddItemBtn;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemIDCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemNameCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemWareCol;
         private System.Windows.Forms.DataGridViewImageColumn ItemEditCol;
-        private System.Windows.Forms.Label label1;
     }
 }

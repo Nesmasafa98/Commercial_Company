@@ -241,7 +241,22 @@
     <Compile Include="selectImportItems_SP_Result.cs">
       <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="SelectItemMovement_Report_Result.cs">
+      <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectItemsDuration_Report_Result.cs">
+      <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectItemsExp_Report_Result.cs">
+      <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectItems_Report_Result.cs">
+      <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="SelectItems_SP_Result.cs">
+      <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPermission_SP_Result.cs">
       <DependentUpon>CommercialCompanyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="SelectWarheouse_Report_Result.cs">
@@ -403,6 +418,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\Images\add.ico" />
+    <None Include="bin\Debug\Images\editing__1__6Sy_icon.ico" />
     <Content Include="CommercialCompanyDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CommercialCompanyDB.edmx</DependentUpon>

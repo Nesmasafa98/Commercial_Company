@@ -64,9 +64,35 @@ namespace Commercial_Company
                 DismissPermssionItemQtyList = new List<Export_Qty>();
                 
             }
-            else if (DialogType == "Edit Dismiss Permssion")
+            else if (DialogType == "Edit Dismiss Permission")
             {
+                WarehouseComboBox.Text = DismissPermissionList[0].Ware_Name;
 
+                int ID = DismissPermissionList[0].Client_ID;
+
+                string ClientName = (from client in CompanyApplication.Ent.Clients
+                                       where client.Client_ID == ID
+                                       select client.Client_Name).First();
+
+                ClientComboBox.Text = ClientName;
+
+
+
+                DismissDateTimePicker.Value = DismissPermissionList[0].Order_Date;
+
+                foreach (var s in DismissPermssionItemQtyList)
+                {
+                    string itemName = (from item in CompanyApplication.Ent.Items
+                                       where item.Item_ID == s.Item_ID
+                                       select item.Item_Name).First();
+
+                    ExportGridView.Rows.Add(itemName, s.Item_Unit.Unit, s.Item_Qty);
+                }
+
+
+                groupBox1.Enabled = false;
+                WarehouseComboBox.Enabled = false;
+                ClientComboBox.Enabled = false;
             }
         }
 
@@ -241,12 +267,18 @@ namespace Commercial_Company
             {
                 if (DialogType == "Add Dismiss Permission")
                 {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+  
                 }
                 else if (DialogType == "Edit Dismiss Permission")
                 {
-                    // EditClient();
+
+                    for (int i = 0; i < DismissPermissionList.Count; i++)
+                    {
+
+                        DismissPermissionList[i].Order_Date = DismissDateTimePicker.Value;
+
+                    }
+                    CompanyApplication.Ent.SaveChanges();
                 }
 
                 this.DialogResult = DialogResult.OK;
@@ -265,7 +297,7 @@ namespace Commercial_Company
             if (string.IsNullOrWhiteSpace(WarehouseComboBox.Text) ||
                 string.IsNullOrWhiteSpace(ClientComboBox.Text) ||
                 string.IsNullOrWhiteSpace(DismissDateTimePicker.Value.ToString()) ||
-                ExportQtyData.Rows.Count == 0
+                ExportGridView.Rows.Count == 0
               )
             {
                 MessageBox.Show("Please Enter The Required Data");

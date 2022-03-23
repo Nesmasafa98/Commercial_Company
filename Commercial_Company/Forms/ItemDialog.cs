@@ -14,6 +14,7 @@ namespace Commercial_Company
     {
         public Item Item { set; get; }
         public List<Item_Unit> ItemUnitList { set; get; }
+        public Warehouse Warehouse { set; get; }
         public string DialogType { set; get; }
         public ItemDialog()
         {
@@ -35,6 +36,11 @@ namespace Commercial_Company
                 ItemCodeTextBox.Text = Item.Item_ID.ToString();
                 ItemNameTextBox.Text = Item.Item_Name;
                 FillUnitGridView();
+                foreach(var w in Item.Warehouses)
+                {
+                    FillWarehouseGridView(w);
+                }
+                WarehouseComboBox.Text = WarehouseGridView.Rows[0].Cells[0].Value.ToString();
             }
             else
             {
@@ -56,6 +62,7 @@ namespace Commercial_Company
                 }
                 else if (DialogType == "Edit Item")
                 {
+                    ItemCodeTextBox.Enabled = false;
                     EditItem();
                 }
 
@@ -132,27 +139,61 @@ namespace Commercial_Company
 
         private void EditItem()
         {
-            SetItem();
+            //Edit Item Code
             int ID = Item.Item_ID;
+
+            //Item.Item_ID = int.Parse(ItemCodeTextBox.Text);
+
+            //foreach (var warehouse in Item.Warehouses)
+            //{
+            //    foreach (var item in warehouse.Items)
+            //    {
+            //        item.Item_ID = int.Parse(ItemCodeTextBox.Text);
+            //    }
+            //}
+
+            //foreach (var Item in CompanyApplication.Ent.Item_Unit)
+            //{
+            //    if(Item.Item_ID == ID)
+            //    {
+            //        Item.Item_ID = int.Parse(ItemCodeTextBox.Text);
+            //    }
+            //}
+
+            SetItem();
             var oldItemUnit = from oldItem in CompanyApplication.Ent.Item_Unit
                               where oldItem.Item_ID == ID
                               select oldItem;
-            
-            if(oldItemUnit.Count() <= ItemUnitList.Count)
+
+            if (oldItemUnit.Count() <= ItemUnitList.Count)
             {
-                for(int i = oldItemUnit.Count() ; i < ItemUnitList.Count; i++)
+                for (int i = oldItemUnit.Count(); i < ItemUnitList.Count; i++)
                 {
                     CompanyApplication.Ent.Item_Unit.Add(ItemUnitList[i]);
                 }
                 CompanyApplication.Ent.SaveChanges();
             }
-            
+
+            if (Item.Warehouses.Count <= WarehouseGridView.Rows.Count)
+            {
+                for (int i = Item.Warehouses.Count; i < WarehouseGridView.Rows.Count; i++)
+                {
+                    Warehouse warehouse = CompanyApplication.Ent.Warehouses.Find(WarehouseComboBox.Text);
+                    Item.Warehouses.Add(warehouse);
+                    FillWarehouseGridView(warehouse);
+                }
+                CompanyApplication.Ent.SaveChanges();
+            }
+
+
+
         }
 
         private void SetItem()
         {
             Item.Item_ID = int.Parse(ItemCodeTextBox.Text);
-            Item.Item_Name = ItemNameTextBox.Text;        
+            Item.Item_Name = ItemNameTextBox.Text;
+            Item.Warehouses.Add(Warehouse);
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
@@ -168,6 +209,8 @@ namespace Commercial_Company
                 ItemUnit.Unit = UnitTextBox.Text;
                 ItemUnitList.Add(ItemUnit);
                 UnitTextBox.Text = string.Empty;
+                ItemNameTextBox.Enabled = false;
+                ItemCodeTextBox.Enabled = false;
                 FillUnitGridView();
             }
             
@@ -182,6 +225,19 @@ namespace Commercial_Company
             }
         }
 
-  
+        private void AddWarehouseBtn_Click(object sender, EventArgs e)
+        {
+            Warehouse = CompanyApplication.Ent.Warehouses.Find(WarehouseComboBox.Text);
+            FillWarehouseGridView(Warehouse);
+        }
+
+        private void FillWarehouseGridView(Warehouse ware)
+        {
+            //WarehouseGridView.Rows.Clear();
+            if(ware != null)
+            {
+                WarehouseGridView.Rows.Add(ware.Ware_Name);
+            }
+        }
     }
 }

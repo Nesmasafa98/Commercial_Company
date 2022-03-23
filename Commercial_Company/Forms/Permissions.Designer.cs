@@ -33,16 +33,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.DismissBtn = new System.Windows.Forms.Button();
             this.SupplyBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PermissionsGridView = new System.Windows.Forms.DataGridView();
             this.PermissionNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PermissionTypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PermissionDateCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PermissionEditCol = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.HeaderPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PermissionsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // HeaderPanel
@@ -57,6 +57,17 @@
             this.HeaderPanel.Name = "HeaderPanel";
             this.HeaderPanel.Size = new System.Drawing.Size(776, 56);
             this.HeaderPanel.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(185, 37);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Permissions";
             // 
             // DismissBtn
             // 
@@ -75,6 +86,7 @@
             // 
             // SupplyBtn
             // 
+            this.SupplyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SupplyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             this.SupplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SupplyBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -87,10 +99,10 @@
             this.SupplyBtn.UseVisualStyleBackColor = false;
             this.SupplyBtn.Click += new System.EventHandler(this.SupplyBtn_Click);
             // 
-            // dataGridView1
+            // PermissionsGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.PermissionsGridView.AllowUserToAddRows = false;
+            this.PermissionsGridView.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,11 +111,11 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.PermissionsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.PermissionsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.PermissionsGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,9 +124,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PermissionsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.PermissionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PermissionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PermissionNoCol,
             this.PermissionTypeCol,
             this.PermissionDateCol,
@@ -126,13 +138,13 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 64);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PermissionsGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PermissionsGridView.GridColor = System.Drawing.SystemColors.Control;
+            this.PermissionsGridView.Location = new System.Drawing.Point(12, 64);
+            this.PermissionsGridView.Name = "PermissionsGridView";
+            this.PermissionsGridView.ReadOnly = true;
+            this.PermissionsGridView.RowHeadersWidth = 62;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
@@ -140,10 +152,11 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 374);
-            this.dataGridView1.TabIndex = 3;
+            this.PermissionsGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.PermissionsGridView.RowTemplate.Height = 28;
+            this.PermissionsGridView.Size = new System.Drawing.Size(776, 374);
+            this.PermissionsGridView.TabIndex = 3;
+            this.PermissionsGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PermissionsGridView_CellClick);
             // 
             // PermissionNoCol
             // 
@@ -173,6 +186,8 @@
             // 
             this.PermissionEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.PermissionEditCol.HeaderText = "";
+            this.PermissionEditCol.Image = global::Commercial_Company.Properties.Resources.editing__1__6Sy_icon;
+            this.PermissionEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.PermissionEditCol.MinimumWidth = 8;
             this.PermissionEditCol.Name = "PermissionEditCol";
             this.PermissionEditCol.ReadOnly = true;
@@ -180,29 +195,19 @@
             this.PermissionEditCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.PermissionEditCol.Width = 35;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
-            this.label1.Location = new System.Drawing.Point(3, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 37);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Permissions";
-            // 
             // Permissions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.PermissionsGridView);
             this.Controls.Add(this.HeaderPanel);
             this.Name = "Permissions";
             this.Text = "Permissions";
+            this.Load += new System.EventHandler(this.Permissions_Load);
             this.HeaderPanel.ResumeLayout(false);
             this.HeaderPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PermissionsGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,11 +216,11 @@
         private System.Windows.Forms.Panel HeaderPanel;
         private System.Windows.Forms.Button DismissBtn;
         private System.Windows.Forms.Button SupplyBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView PermissionsGridView;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn PermissionNoCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn PermissionTypeCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn PermissionDateCol;
         private System.Windows.Forms.DataGridViewImageColumn PermissionEditCol;
-        private System.Windows.Forms.Label label1;
     }
 }

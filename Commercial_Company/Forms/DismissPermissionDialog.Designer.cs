@@ -44,16 +44,15 @@
             this.ClientComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.ItemQtyCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemUnitCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExportGridView = new System.Windows.Forms.DataGridView();
-            this.ItemDelCol = new System.Windows.Forms.DataGridViewImageColumn();
             this.WarehouseComboBox = new System.Windows.Forms.ComboBox();
             this.DismissDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DialogTypeLabel = new System.Windows.Forms.Label();
+            this.ItemNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemUnitCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemQtyCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExportGridView)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +63,7 @@
             this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelBtn.Location = new System.Drawing.Point(830, 471);
+            this.CancelBtn.Location = new System.Drawing.Point(854, 471);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(145, 50);
             this.CancelBtn.TabIndex = 32;
@@ -190,37 +189,13 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(637, 471);
+            this.button1.Location = new System.Drawing.Point(703, 471);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 50);
             this.button1.TabIndex = 31;
             this.button1.Text = "Apply";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // ItemQtyCol
-            // 
-            this.ItemQtyCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemQtyCol.HeaderText = "Qty";
-            this.ItemQtyCol.MinimumWidth = 8;
-            this.ItemQtyCol.Name = "ItemQtyCol";
-            this.ItemQtyCol.ReadOnly = true;
-            // 
-            // ItemUnitCol
-            // 
-            this.ItemUnitCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemUnitCol.HeaderText = "Unit";
-            this.ItemUnitCol.MinimumWidth = 8;
-            this.ItemUnitCol.Name = "ItemUnitCol";
-            this.ItemUnitCol.ReadOnly = true;
-            // 
-            // ItemNameCol
-            // 
-            this.ItemNameCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemNameCol.HeaderText = "Name";
-            this.ItemNameCol.MinimumWidth = 8;
-            this.ItemNameCol.Name = "ItemNameCol";
-            this.ItemNameCol.ReadOnly = true;
             // 
             // ExportGridView
             // 
@@ -249,8 +224,7 @@
             this.ExportGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemNameCol,
             this.ItemUnitCol,
-            this.ItemQtyCol,
-            this.ItemDelCol});
+            this.ItemQtyCol});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -261,7 +235,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ExportGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.ExportGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.ExportGridView.Location = new System.Drawing.Point(637, 12);
+            this.ExportGridView.Location = new System.Drawing.Point(559, 12);
             this.ExportGridView.Name = "ExportGridView";
             this.ExportGridView.ReadOnly = true;
             this.ExportGridView.RowHeadersWidth = 62;
@@ -275,17 +249,8 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ExportGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.ExportGridView.RowTemplate.Height = 28;
-            this.ExportGridView.Size = new System.Drawing.Size(338, 438);
+            this.ExportGridView.Size = new System.Drawing.Size(440, 438);
             this.ExportGridView.TabIndex = 27;
-            // 
-            // ItemDelCol
-            // 
-            this.ItemDelCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ItemDelCol.HeaderText = "";
-            this.ItemDelCol.MinimumWidth = 8;
-            this.ItemDelCol.Name = "ItemDelCol";
-            this.ItemDelCol.ReadOnly = true;
-            this.ItemDelCol.Width = 9;
             // 
             // WarehouseComboBox
             // 
@@ -338,6 +303,30 @@
             this.DialogTypeLabel.TabIndex = 22;
             this.DialogTypeLabel.Text = "Dismiss Permssion";
             // 
+            // ItemNameCol
+            // 
+            this.ItemNameCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemNameCol.HeaderText = "Name";
+            this.ItemNameCol.MinimumWidth = 8;
+            this.ItemNameCol.Name = "ItemNameCol";
+            this.ItemNameCol.ReadOnly = true;
+            // 
+            // ItemUnitCol
+            // 
+            this.ItemUnitCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemUnitCol.HeaderText = "Unit";
+            this.ItemUnitCol.MinimumWidth = 8;
+            this.ItemUnitCol.Name = "ItemUnitCol";
+            this.ItemUnitCol.ReadOnly = true;
+            // 
+            // ItemQtyCol
+            // 
+            this.ItemQtyCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemQtyCol.HeaderText = "Qty";
+            this.ItemQtyCol.MinimumWidth = 8;
+            this.ItemQtyCol.Name = "ItemQtyCol";
+            this.ItemQtyCol.ReadOnly = true;
+            // 
             // DismissPermissionDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -380,15 +369,14 @@
         private System.Windows.Forms.ComboBox ClientComboBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemQtyCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemNameCol;
         private System.Windows.Forms.DataGridView ExportGridView;
-        private System.Windows.Forms.DataGridViewImageColumn ItemDelCol;
         private System.Windows.Forms.ComboBox WarehouseComboBox;
         private System.Windows.Forms.DateTimePicker DismissDateTimePicker;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label DialogTypeLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemQtyCol;
     }
 }

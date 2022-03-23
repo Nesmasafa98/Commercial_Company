@@ -47,16 +47,14 @@
             this.UnitTextBox = new System.Windows.Forms.TextBox();
             this.AddUnitBtn = new System.Windows.Forms.Button();
             this.UnitGridView = new System.Windows.Forms.DataGridView();
-            this.ItemUnitCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemDelCol = new System.Windows.Forms.DataGridViewImageColumn();
             this.WarehouseComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.WarehouseGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.AddWarehouseBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ItemUnitCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.UnitGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WarehouseGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -190,7 +188,7 @@
             this.UnitGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
@@ -199,11 +197,10 @@
             this.UnitGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.UnitGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UnitGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ItemUnitCol,
-            this.ItemDelCol});
+            this.ItemUnitCol});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
@@ -227,24 +224,6 @@
             this.UnitGridView.RowTemplate.Height = 28;
             this.UnitGridView.Size = new System.Drawing.Size(314, 232);
             this.UnitGridView.TabIndex = 34;
-            // 
-            // ItemUnitCol
-            // 
-            this.ItemUnitCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemUnitCol.HeaderText = "Unit";
-            this.ItemUnitCol.MinimumWidth = 8;
-            this.ItemUnitCol.Name = "ItemUnitCol";
-            this.ItemUnitCol.ReadOnly = true;
-            // 
-            // ItemDelCol
-            // 
-            this.ItemDelCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ItemDelCol.HeaderText = "";
-            this.ItemDelCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.ItemDelCol.MinimumWidth = 8;
-            this.ItemDelCol.Name = "ItemDelCol";
-            this.ItemDelCol.ReadOnly = true;
-            this.ItemDelCol.Width = 30;
             // 
             // WarehouseComboBox
             // 
@@ -283,7 +262,7 @@
             this.WarehouseGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(3);
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
@@ -292,11 +271,10 @@
             this.WarehouseGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.WarehouseGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.WarehouseGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewImageColumn1});
+            this.dataGridViewTextBoxColumn1});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(3);
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
@@ -321,24 +299,6 @@
             this.WarehouseGridView.Size = new System.Drawing.Size(314, 181);
             this.WarehouseGridView.TabIndex = 37;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Warehouse";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.dataGridViewImageColumn1.MinimumWidth = 8;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 30;
-            // 
             // AddWarehouseBtn
             // 
             this.AddWarehouseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
@@ -351,6 +311,7 @@
             this.AddWarehouseBtn.TabIndex = 38;
             this.AddWarehouseBtn.Text = "Add";
             this.AddWarehouseBtn.UseVisualStyleBackColor = false;
+            this.AddWarehouseBtn.Click += new System.EventHandler(this.AddWarehouseBtn_Click);
             // 
             // groupBox1
             // 
@@ -385,6 +346,22 @@
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Warehouse Details";
+            // 
+            // ItemUnitCol
+            // 
+            this.ItemUnitCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemUnitCol.HeaderText = "Unit";
+            this.ItemUnitCol.MinimumWidth = 8;
+            this.ItemUnitCol.Name = "ItemUnitCol";
+            this.ItemUnitCol.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Warehouse";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // ItemDialog
             // 
@@ -424,15 +401,13 @@
         private System.Windows.Forms.TextBox UnitTextBox;
         private System.Windows.Forms.Button AddUnitBtn;
         private System.Windows.Forms.DataGridView UnitGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitCol;
-        private System.Windows.Forms.DataGridViewImageColumn ItemDelCol;
         private System.Windows.Forms.ComboBox WarehouseComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView WarehouseGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.Button AddWarehouseBtn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

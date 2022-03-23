@@ -91,6 +91,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ClientGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ClientGridView.GridColor = System.Drawing.SystemColors.Control;
             this.ClientGridView.Location = new System.Drawing.Point(12, 89);
             this.ClientGridView.Name = "ClientGridView";
             this.ClientGridView.ReadOnly = true;
@@ -171,8 +172,8 @@
             this.ClientEditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.ClientEditCol.FillWeight = 75F;
             this.ClientEditCol.HeaderText = "";
-            this.ClientEditCol.Image = global::Commercial_Company.Properties.Resources.editIcon;
-            this.ClientEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.ClientEditCol.Image = global::Commercial_Company.Properties.Resources.editing__1__6Sy_icon;
+            this.ClientEditCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.ClientEditCol.MinimumWidth = 8;
             this.ClientEditCol.Name = "ClientEditCol";
             this.ClientEditCol.ReadOnly = true;
@@ -225,6 +226,7 @@
 
         private System.Windows.Forms.DataGridView ClientGridView;
         private System.Windows.Forms.Button AddClientBtn;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientIDCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientNameCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientTelCol;
@@ -233,6 +235,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientEmailCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientSiteCol;
         private System.Windows.Forms.DataGridViewImageColumn ClientEditCol;
-        private System.Windows.Forms.Label label1;
     }
 }
