@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace Commercial_Company
 {
@@ -23,6 +24,7 @@ namespace Commercial_Company
         public CompanyApplication()
         {
             InitializeComponent();
+            this.WarehouseBtn.FlatAppearance.BorderSize = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,6 +36,9 @@ namespace Commercial_Company
             PermissionsForm = new Permissions();
             TransactionsForm = new TransactionsForm();
             ReportsForm = new ReportsForm();
+            PrivateFontCollection Fonts = new PrivateFontCollection();
+            Fonts.AddFontFile(@"Fonts\Montserrat_Subrayada\MontserratSubrayada-Bold.ttf");
+            LogoLabel.Font = new Font(Fonts.Families[0], 16, FontStyle.Bold);
         }
 
         private void WarehouseBtn_Click(object sender, EventArgs e)

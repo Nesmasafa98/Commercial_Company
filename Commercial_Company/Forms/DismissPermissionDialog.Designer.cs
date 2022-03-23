@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,12 +60,16 @@
             // 
             // CancelBtn
             // 
-            this.CancelBtn.Location = new System.Drawing.Point(970, 453);
+            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.Location = new System.Drawing.Point(830, 471);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(163, 33);
+            this.CancelBtn.Size = new System.Drawing.Size(145, 50);
             this.CancelBtn.TabIndex = 32;
             this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.UseVisualStyleBackColor = false;
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // groupBox1
@@ -73,9 +81,11 @@
             this.groupBox1.Controls.Add(this.UnitCombox);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.QtyTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(19, 240);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.groupBox1.Location = new System.Drawing.Point(39, 256);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(745, 148);
+            this.groupBox1.Size = new System.Drawing.Size(514, 265);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Details";
@@ -83,89 +93,109 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 35);
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(16, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.Size = new System.Drawing.Size(54, 24);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Item :";
+            this.label4.Text = "Item ";
             // 
             // AddItemBtn
             // 
-            this.AddItemBtn.Location = new System.Drawing.Point(511, 95);
+            this.AddItemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.AddItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddItemBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddItemBtn.ForeColor = System.Drawing.Color.White;
+            this.AddItemBtn.Location = new System.Drawing.Point(319, 197);
             this.AddItemBtn.Name = "AddItemBtn";
-            this.AddItemBtn.Size = new System.Drawing.Size(221, 33);
+            this.AddItemBtn.Size = new System.Drawing.Size(145, 50);
             this.AddItemBtn.TabIndex = 10;
             this.AddItemBtn.Text = "Add Item";
-            this.AddItemBtn.UseVisualStyleBackColor = true;
+            this.AddItemBtn.UseVisualStyleBackColor = false;
             this.AddItemBtn.Click += new System.EventHandler(this.AddItemBtn_Click);
             // 
             // ItemComboBox
             // 
+            this.ItemComboBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemComboBox.FormattingEnabled = true;
-            this.ItemComboBox.Location = new System.Drawing.Point(61, 32);
+            this.ItemComboBox.Location = new System.Drawing.Point(147, 32);
             this.ItemComboBox.Name = "ItemComboBox";
-            this.ItemComboBox.Size = new System.Drawing.Size(226, 28);
+            this.ItemComboBox.Size = new System.Drawing.Size(317, 32);
             this.ItemComboBox.TabIndex = 7;
             this.ItemComboBox.SelectedIndexChanged += new System.EventHandler(this.ItemComboBox_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(317, 35);
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(16, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 20);
+            this.label5.Size = new System.Drawing.Size(51, 24);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Unit :";
+            this.label5.Text = "Unit ";
             // 
             // UnitCombox
             // 
+            this.UnitCombox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UnitCombox.FormattingEnabled = true;
-            this.UnitCombox.Location = new System.Drawing.Point(372, 32);
+            this.UnitCombox.Location = new System.Drawing.Point(147, 87);
             this.UnitCombox.Name = "UnitCombox";
-            this.UnitCombox.Size = new System.Drawing.Size(156, 28);
+            this.UnitCombox.Size = new System.Drawing.Size(317, 32);
             this.UnitCombox.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(556, 35);
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(16, 150);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 20);
+            this.label6.Size = new System.Drawing.Size(47, 24);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Qty :";
+            this.label6.Text = "Qty ";
             // 
             // QtyTextBox
             // 
-            this.QtyTextBox.Location = new System.Drawing.Point(603, 32);
+            this.QtyTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QtyTextBox.Location = new System.Drawing.Point(147, 142);
             this.QtyTextBox.Name = "QtyTextBox";
-            this.QtyTextBox.Size = new System.Drawing.Size(129, 26);
+            this.QtyTextBox.Size = new System.Drawing.Size(317, 31);
             this.QtyTextBox.TabIndex = 12;
             // 
             // ClientComboBox
             // 
+            this.ClientComboBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientComboBox.FormattingEnabled = true;
-            this.ClientComboBox.Location = new System.Drawing.Point(121, 130);
+            this.ClientComboBox.Location = new System.Drawing.Point(186, 133);
             this.ClientComboBox.Name = "ClientComboBox";
-            this.ClientComboBox.Size = new System.Drawing.Size(299, 28);
+            this.ClientComboBox.Size = new System.Drawing.Size(317, 32);
             this.ClientComboBox.TabIndex = 29;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 133);
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(55, 136);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 20);
+            this.label7.Size = new System.Drawing.Size(65, 24);
             this.label7.TabIndex = 28;
-            this.label7.Text = "Client :";
+            this.label7.Text = "Client ";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(795, 453);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(637, 471);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 33);
+            this.button1.Size = new System.Drawing.Size(145, 50);
             this.button1.TabIndex = 31;
             this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // ItemQtyCol
@@ -196,18 +226,56 @@
             // 
             this.ExportGridView.AllowUserToAddRows = false;
             this.ExportGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ExportGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.ExportGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ExportGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ExportGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ExportGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemNameCol,
             this.ItemUnitCol,
             this.ItemQtyCol,
             this.ItemDelCol});
-            this.ExportGridView.Location = new System.Drawing.Point(795, 12);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ExportGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ExportGridView.GridColor = System.Drawing.SystemColors.Control;
+            this.ExportGridView.Location = new System.Drawing.Point(637, 12);
             this.ExportGridView.Name = "ExportGridView";
             this.ExportGridView.ReadOnly = true;
             this.ExportGridView.RowHeadersWidth = 62;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ExportGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.ExportGridView.RowTemplate.Height = 28;
-            this.ExportGridView.Size = new System.Drawing.Size(338, 429);
+            this.ExportGridView.Size = new System.Drawing.Size(338, 438);
             this.ExportGridView.TabIndex = 27;
             // 
             // ItemDelCol
@@ -217,49 +285,56 @@
             this.ItemDelCol.MinimumWidth = 8;
             this.ItemDelCol.Name = "ItemDelCol";
             this.ItemDelCol.ReadOnly = true;
-            this.ItemDelCol.Width = 8;
+            this.ItemDelCol.Width = 9;
             // 
             // WarehouseComboBox
             // 
+            this.WarehouseComboBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarehouseComboBox.FormattingEnabled = true;
-            this.WarehouseComboBox.Location = new System.Drawing.Point(121, 77);
+            this.WarehouseComboBox.Location = new System.Drawing.Point(186, 77);
             this.WarehouseComboBox.Name = "WarehouseComboBox";
-            this.WarehouseComboBox.Size = new System.Drawing.Size(299, 28);
+            this.WarehouseComboBox.Size = new System.Drawing.Size(317, 32);
             this.WarehouseComboBox.TabIndex = 26;
             this.WarehouseComboBox.SelectedIndexChanged += new System.EventHandler(this.WarehouseComboBox_SelectedIndexChanged);
             // 
             // DismissDateTimePicker
             // 
-            this.DismissDateTimePicker.Location = new System.Drawing.Point(82, 189);
+            this.DismissDateTimePicker.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DismissDateTimePicker.Location = new System.Drawing.Point(186, 189);
             this.DismissDateTimePicker.Name = "DismissDateTimePicker";
-            this.DismissDateTimePicker.Size = new System.Drawing.Size(338, 26);
+            this.DismissDateTimePicker.Size = new System.Drawing.Size(317, 31);
             this.DismissDateTimePicker.TabIndex = 25;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 194);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(55, 191);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 20);
+            this.label3.Size = new System.Drawing.Size(56, 24);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Date :";
+            this.label3.Text = "Date ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 80);
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(55, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
+            this.label2.Size = new System.Drawing.Size(111, 24);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Warehouse :";
+            this.label2.Text = "Warehouse ";
             // 
             // DialogTypeLabel
             // 
             this.DialogTypeLabel.AutoSize = true;
-            this.DialogTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DialogTypeLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DialogTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
             this.DialogTypeLabel.Location = new System.Drawing.Point(12, 9);
             this.DialogTypeLabel.Name = "DialogTypeLabel";
-            this.DialogTypeLabel.Size = new System.Drawing.Size(340, 40);
+            this.DialogTypeLabel.Size = new System.Drawing.Size(279, 37);
             this.DialogTypeLabel.TabIndex = 22;
             this.DialogTypeLabel.Text = "Dismiss Permssion";
             // 
@@ -267,7 +342,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 499);
+            this.ClientSize = new System.Drawing.Size(1011, 547);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ClientComboBox);
@@ -280,6 +355,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DialogTypeLabel);
             this.Name = "DismissPermissionDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DismissPermissionDialog";
             this.Load += new System.EventHandler(this.DismissPermissionDialog_Load);
             this.groupBox1.ResumeLayout(false);

@@ -181,5 +181,7 @@ namespace Commercial_Company
                 UnitGridView.Rows.Add(itemUnit.Unit);
             }
         }
+
+  
     }
 }

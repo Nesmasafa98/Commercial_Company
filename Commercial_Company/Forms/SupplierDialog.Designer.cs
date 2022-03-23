@@ -47,127 +47,148 @@
             // 
             // ApplyBtn
             // 
-            this.ApplyBtn.Location = new System.Drawing.Point(233, 382);
+            this.ApplyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.ApplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApplyBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApplyBtn.ForeColor = System.Drawing.Color.White;
+            this.ApplyBtn.Location = new System.Drawing.Point(132, 367);
             this.ApplyBtn.Name = "ApplyBtn";
-            this.ApplyBtn.Size = new System.Drawing.Size(145, 36);
+            this.ApplyBtn.Size = new System.Drawing.Size(145, 50);
             this.ApplyBtn.TabIndex = 29;
             this.ApplyBtn.Text = "Apply";
-            this.ApplyBtn.UseVisualStyleBackColor = true;
+            this.ApplyBtn.UseVisualStyleBackColor = false;
             this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
             // 
             // SupplierSiteTextBox
             // 
-            this.SupplierSiteTextBox.Location = new System.Drawing.Point(339, 312);
+            this.SupplierSiteTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SupplierSiteTextBox.Location = new System.Drawing.Point(262, 287);
             this.SupplierSiteTextBox.Name = "SupplierSiteTextBox";
-            this.SupplierSiteTextBox.Size = new System.Drawing.Size(236, 26);
+            this.SupplierSiteTextBox.Size = new System.Drawing.Size(236, 31);
             this.SupplierSiteTextBox.TabIndex = 28;
             // 
             // SupplierMobTextBox
             // 
-            this.SupplierMobTextBox.Location = new System.Drawing.Point(339, 196);
+            this.SupplierMobTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SupplierMobTextBox.Location = new System.Drawing.Point(262, 161);
             this.SupplierMobTextBox.Name = "SupplierMobTextBox";
-            this.SupplierMobTextBox.Size = new System.Drawing.Size(236, 26);
+            this.SupplierMobTextBox.Size = new System.Drawing.Size(236, 31);
             this.SupplierMobTextBox.TabIndex = 27;
             // 
             // SupplierFaxTextBox
             // 
-            this.SupplierFaxTextBox.Location = new System.Drawing.Point(339, 229);
+            this.SupplierFaxTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SupplierFaxTextBox.Location = new System.Drawing.Point(262, 203);
             this.SupplierFaxTextBox.Name = "SupplierFaxTextBox";
-            this.SupplierFaxTextBox.Size = new System.Drawing.Size(236, 26);
+            this.SupplierFaxTextBox.Size = new System.Drawing.Size(236, 31);
             this.SupplierFaxTextBox.TabIndex = 26;
             // 
             // SupplierEmailTextBox
             // 
-            this.SupplierEmailTextBox.Location = new System.Drawing.Point(339, 269);
+            this.SupplierEmailTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SupplierEmailTextBox.Location = new System.Drawing.Point(262, 245);
             this.SupplierEmailTextBox.Name = "SupplierEmailTextBox";
-            this.SupplierEmailTextBox.Size = new System.Drawing.Size(236, 26);
+            this.SupplierEmailTextBox.Size = new System.Drawing.Size(236, 31);
             this.SupplierEmailTextBox.TabIndex = 25;
             // 
             // SupplierTelTextBox
             // 
-            this.SupplierTelTextBox.Location = new System.Drawing.Point(339, 161);
+            this.SupplierTelTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SupplierTelTextBox.Location = new System.Drawing.Point(262, 119);
             this.SupplierTelTextBox.Name = "SupplierTelTextBox";
-            this.SupplierTelTextBox.Size = new System.Drawing.Size(236, 26);
+            this.SupplierTelTextBox.Size = new System.Drawing.Size(236, 31);
             this.SupplierTelTextBox.TabIndex = 24;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(229, 272);
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(131, 246);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 20);
+            this.label7.Size = new System.Drawing.Size(70, 24);
             this.label7.TabIndex = 23;
-            this.label7.Text = "E-mail :";
+            this.label7.Text = "E-mail ";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(229, 312);
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(131, 288);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.Size = new System.Drawing.Size(85, 24);
             this.label6.TabIndex = 22;
-            this.label6.Text = "Website :";
+            this.label6.Text = "Website ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(226, 161);
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(128, 120);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 20);
+            this.label5.Size = new System.Drawing.Size(105, 24);
             this.label5.TabIndex = 21;
-            this.label5.Text = "Telephone :";
+            this.label5.Text = "Telephone ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(229, 199);
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(131, 162);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 20);
+            this.label4.Size = new System.Drawing.Size(76, 24);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Mobile :";
+            this.label4.Text = "Mobile ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(229, 232);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(131, 204);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 20);
+            this.label3.Size = new System.Drawing.Size(44, 24);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Fax :";
+            this.label3.Text = "Fax ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 128);
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(131, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 20);
+            this.label2.Size = new System.Drawing.Size(67, 24);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Name :";
+            this.label2.Text = "Name ";
             // 
             // SupplierNameTextBox
             // 
-            this.SupplierNameTextBox.Location = new System.Drawing.Point(339, 125);
+            this.SupplierNameTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SupplierNameTextBox.Location = new System.Drawing.Point(262, 77);
             this.SupplierNameTextBox.Name = "SupplierNameTextBox";
-            this.SupplierNameTextBox.Size = new System.Drawing.Size(236, 26);
+            this.SupplierNameTextBox.Size = new System.Drawing.Size(236, 31);
             this.SupplierNameTextBox.TabIndex = 17;
             // 
             // CancelBtn
             // 
-            this.CancelBtn.Location = new System.Drawing.Point(430, 382);
+            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.Location = new System.Drawing.Point(353, 367);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(145, 36);
+            this.CancelBtn.Size = new System.Drawing.Size(145, 50);
             this.CancelBtn.TabIndex = 16;
             this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.UseVisualStyleBackColor = false;
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // DialogTypeLabel
             // 
             this.DialogTypeLabel.AutoSize = true;
-            this.DialogTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DialogTypeLabel.Location = new System.Drawing.Point(226, 32);
+            this.DialogTypeLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DialogTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(58)))));
+            this.DialogTypeLabel.Location = new System.Drawing.Point(12, 9);
             this.DialogTypeLabel.Name = "DialogTypeLabel";
-            this.DialogTypeLabel.Size = new System.Drawing.Size(157, 40);
+            this.DialogTypeLabel.Size = new System.Drawing.Size(134, 37);
             this.DialogTypeLabel.TabIndex = 15;
             this.DialogTypeLabel.Text = "Supplier";
             // 
@@ -175,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(643, 444);
             this.Controls.Add(this.ApplyBtn);
             this.Controls.Add(this.SupplierSiteTextBox);
             this.Controls.Add(this.SupplierMobTextBox);
