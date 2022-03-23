@@ -117,7 +117,15 @@ namespace Commercial_Company
 
         private void RenderItemsDurationReport(int Duration, string DurationType)
         {
-            this.SelectItemsDuration_ReportTableAdapter.Fill(this.Commercial_CompanyDataSet2.SelectItemsDuration_Report, Duration, DurationType);
+            try
+            {
+                this.SelectItemsDuration_ReportTableAdapter.Fill(this.Commercial_CompanyDataSet2.SelectItemsDuration_Report, Duration, DurationType);
+            }
+            catch
+            {
+               
+            }
+            
             this.reportViewer4.RefreshReport();
         }
 
